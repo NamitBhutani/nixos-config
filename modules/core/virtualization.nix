@@ -1,30 +1,20 @@
 { config, pkgs, username, ... }:
 {
-  # Add user to libvirtd group
-  users.users.${username}.extraGroups = [ "libvirtd" ];
+  # Add user to docker group
+  users.users.${username}.extraGroups = [ "docker" ];
 
-  # Install necessary packages
-  environment.systemPackages = with pkgs; [
-    virt-manager
-    virt-viewer
-    spice spice-gtk
-    spice-protocol
-    win-virtio
-    win-spice
-    gnome.adwaita-icon-theme
-  ];
-
-  # Manage the virtualisation services
+  # Enable docker
   virtualisation = {
-    libvirtd = {
+    docker = {
       enable = true;
-      qemu = {
-        swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
       };
     };
-    spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;
+
+  #Add docker-compose
+  environment.systemPackages = with pkgs; [docker-compose];
 }
