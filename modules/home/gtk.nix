@@ -21,15 +21,15 @@
         accent = "lavender";
       };
     };
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "compact";
-        # tweaks = [ "rimless" ];
-        variant = "mocha";
-      };
-    };
+    # theme = {
+    #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+    #   package = pkgs.catppuccin-gtk.override {
+    #     accents = [ "lavender" ];
+    #     size = "compact";
+    #     # tweaks = [ "rimless" ];
+    #     variant = "mocha";
+    #   };
+    # };
     cursorTheme = {
       name = "Nordzy-cursors";
       package = pkgs.nordzy-cursor-theme;
