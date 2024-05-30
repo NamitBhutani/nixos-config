@@ -9,6 +9,7 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
         "nm-applet &"
+        "wl-clipboard-history -t"
         "wl-clip-persist --clipboard both"
         "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
         "sleep 1 && swaylock"
