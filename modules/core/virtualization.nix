@@ -1,13 +1,10 @@
 { config, pkgs, username, ... }:
 {
-  # Add user to docker group
-  users.users.${username}.extraGroups = [ "docker" ];
 
-  # Enable docker
+  # Enable rootless docker
   virtualisation = {
     docker = {
       enable = true;
-      storageDriver = "btrfs";
       rootless = {
         enable = true;
         setSocketVariable = true;

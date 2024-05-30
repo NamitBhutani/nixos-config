@@ -7,8 +7,7 @@
    # ++ [(import ./cava.nix)]                     # audio visualizer
     ++ [(import ./discord.nix)]                   # discord with catppuccin theme
     ++ [(import ./edge/edge.nix)]                 # edge browser
-    ++ [(import ./gaming.nix)]                    # packages related to gaming
-    ++ [(import ./git.nix)]                       # vertion controle
+    ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager
     ++ [(import ./kitty.nix)]                     # terminal
@@ -17,7 +16,6 @@
     ++ [(import ./nvim.nix)]                      # neovim editor
     ++ [(import ./packages.nix)]                  # other packages
     ++ [(import ./retroarch.nix)]
-    ++ [(import ./rider.nix)]                     # C# JetBrain editor
     ++ [(import ./scripts/scripts.nix)]           # personal scripts
     ++ [(import ./starship.nix)]                  # shell prompt
     ++ [(import ./swaylock.nix)]                  # lock screen
