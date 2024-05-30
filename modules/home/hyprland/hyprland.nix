@@ -5,10 +5,10 @@
     swaybg
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     hyprpicker
+    hyprshade
     grim
     slurp
     wl-clipboard
-    wl-clip-persist
     wf-recorder
     glib
     wayland
