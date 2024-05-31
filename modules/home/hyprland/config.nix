@@ -16,7 +16,8 @@
         "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
-        "mako &" 
+        "mako &"
+        "sunshine &"
       ];
 
       input = {
