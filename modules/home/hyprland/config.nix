@@ -17,7 +17,6 @@
         "poweralertd &"
         "waybar &"
         "mako &"
-        "sunshine &"
       ];
 
       input = {
@@ -130,6 +129,7 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
+        "$mainMod, R, exec, microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, kitty"
         "ALT, Return, exec, kitty --title float_kitty"
         "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"
