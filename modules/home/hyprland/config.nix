@@ -129,7 +129,7 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, R, exec, microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, kitty"
         "ALT, Return, exec, kitty --title float_kitty"
         "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"
@@ -173,6 +173,10 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
+
+        # move workspace to another monitor
+        "$mainMod TAB, l, movecurrentworkspacetomonitor, l"
+        "$mainMod TAB, r, movecurrentworkspacetomonitor, r"
 
         # same as above, but switch to the workspace
         "$mainMod SHIFT, 1, movetoworkspacesilent, 1" # movetoworkspacesilent
