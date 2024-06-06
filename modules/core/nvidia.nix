@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
-let 
-package = config.boot.kernelPackages.nvidiaPackages.stable;
-in
+# let 
+# package = config.boot.kernelPackages.nvidiaPackages.stable;
+# in
 {  
   hardware.nvidia = {
     modesetting.enable = true;
@@ -9,7 +9,7 @@ in
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     prime = {
   		offload = {
   			enable = true;

@@ -8,7 +8,6 @@
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager
-    ++ [(import ./sunshine.nix)]                  # sunshine for game streaming
     ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
     ++ [(import ./micro.nix)]                     # nano replacement

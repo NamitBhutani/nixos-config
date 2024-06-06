@@ -10,7 +10,7 @@
   
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
   
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    # nix-gaming.url = "github:fufexan/nix-gaming";
   
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -34,14 +34,9 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
-    
-    nvidia-patch = {
-      url = "github:icewind1991/nvidia-patch-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, self, nvidia-patch, ... } @ inputs:
+  outputs = { nixpkgs, self, ... } @ inputs:
   let
     username = "intellomaniac";
     system = "x86_64-linux";
@@ -57,9 +52,9 @@
         inherit system;
         modules = [
           (import ./hosts/laptop) 
-          ({ config, pkgs, ... }: {
-            nixpkgs.overlays = [ nvidia-patch.overlays.default ];
-          })
+          # ({ config, pkgs, ... }: {
+          #   nixpkgs.overlays = [ nvidia-patch.overlays.default ];
+          # })
         ];
         specialArgs = { host = "laptop"; inherit self inputs username; };
       };

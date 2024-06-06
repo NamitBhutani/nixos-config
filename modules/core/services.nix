@@ -1,4 +1,4 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
   services = {
     gvfs.enable = true;
@@ -11,6 +11,7 @@
     HandlePowerKey=ignore
   '';
     services.sunshine = {
+    package = pkgs.sunshine.override { cudaSupport=true; };
     enable = true;
     autoStart = true;
     capSysAdmin = true;
