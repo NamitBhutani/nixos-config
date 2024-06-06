@@ -34,11 +34,15 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
+    
+    nvidia-patch = {
+      url = "github:icewind1991/nvidia-patch-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, self, ...} @ inputs:
+  outputs = { nixpkgs, self, nvidia-patch, ... } @ inputs:
   let
-    selfPkgs = import ./pkgs;
     username = "intellomaniac";
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -48,22 +52,16 @@
     lib = nixpkgs.lib;
   in
   {
-    overlays.default = selfPkgs.overlay;
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ (import ./hosts/desktop) ];
-        specialArgs = { host="desktop"; inherit self inputs username ; };
-      };
+    nixosConfigurations = { 
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ (import ./hosts/laptop) ];
-        specialArgs = { host="laptop"; inherit self inputs username ; };
-      };
-       vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ (import ./hosts/vm) ];
-        specialArgs = { host="vm"; inherit self inputs username ; };
+        modules = [
+          (import ./hosts/laptop) 
+          ({ config, pkgs, ... }: {
+            nixpkgs.overlays = [ nvidia-patch.overlays.default ];
+          })
+        ];
+        specialArgs = { host = "laptop"; inherit self inputs username; };
       };
     };
   };
