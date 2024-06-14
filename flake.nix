@@ -13,7 +13,7 @@
     # nix-gaming.url = "github:fufexan/nix-gaming";
   
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   
@@ -24,6 +24,10 @@
 
     catppuccin-bat = {
       url = "github:catppuccin/bat";
+      flake = false;
+    };
+    catppuccin-cava = {
+      url = "github:catppuccin/cava";
       flake = false;
     };
     catppuccin-starship = {
