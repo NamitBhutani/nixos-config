@@ -6,7 +6,7 @@
     entr                              # perform action when file change
     fd                                # find replacement
     file                              # Show file information 
-    fzf                               # fuzzy finder
+    fzf
    # gtt                               # google translate TUI
     gtrash                            # rm replacement, put deleted files in system trash
     hexdump
