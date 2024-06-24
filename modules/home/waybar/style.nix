@@ -95,5 +95,11 @@ in
         padding-left: 10px;
         padding-right: 15px;
     }
+
+    #temperature {
+    color: ${custom.text_color};
+        padding-left: 9px;
+        padding-right: 15px;
+    }
   '';
 }

@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.waybar.settings.mainBar = {
-    position= "bottom";
+    position= "top";
     layer= "top";
     height= 5;
     margin-top= 0;
@@ -9,6 +9,7 @@
     margin-left= 0;
     margin-right= 0;
     modules-left= [
+        "temperature"
         "custom/launcher" 
         "hyprland/workspaces"
     ];
@@ -111,6 +112,11 @@
         on-click= "pkill wofi || wofi --show drun";
         on-click-right= "pkill wofi || wallpaper-picker"; 
         tooltip= "false";
+    };
+    temperature = {
+        hwmon-path="/sys/class/hwmon/hwmon4/temp1_input";
+        format= " {temperatureC}°C";
+        interval= 10;
     };
   };
 }
