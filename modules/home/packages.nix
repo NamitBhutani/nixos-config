@@ -54,6 +54,5 @@
     wget
     xdg-utils
     xxd
-    inputs.alejandra.defaultPackage.${system}
   ]);
 }
