@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -17,6 +17,7 @@
     { device = "/dev/disk/by-uuid/277b70b8-73bc-4403-be3e-3bdd688c40cb";
       fsType = "ext4";
     };
+fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/26E0-C789";
@@ -31,6 +32,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-9da0601a47a3.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
 

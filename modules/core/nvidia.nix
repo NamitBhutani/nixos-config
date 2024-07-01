@@ -1,22 +1,13 @@
 { pkgs, config, lib, ... }:
-# let 
-# package = config.boot.kernelPackages.nvidiaPackages.stable;
-# in
+
 {  
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-version = "555.58";
-sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
-sha256_aarch64 = "sha256-7XswQwW1iFP4ji5mbRQ6PVEhD4SGWpjUJe1o8zoXYRE=";
-openSha256 = "sha256-hEAmFISMuXm8tbsrB+WiUcEFuSGRNZ37aKWvf0WJ2/c=";
-settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
-persistencedSha256 = lib.fakeHash;
-};
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     prime = {
   		offload = {
   			enable = true;
@@ -27,21 +18,27 @@ persistencedSha256 = lib.fakeHash;
   	};
   };
 
-  #   specialisation = {
-  #   nvidia-sync.configuration = {
-  #     system.nixos.tags = [ "nvidia-sync" ];
-  #     hardware.nvidia = {
-  #       powerManagement.finegrained = lib.mkForce false;
+     specialisation = {
+    disableNvidia = {
+      configuration = {
+        boot.extraModprobeConfig = ''
+          blacklist nouveau
+          options nouveau modeset=0
+        '';
 
-  #       prime.offload.enable = lib.mkForce false;
-  #       prime.offload.enableOffloadCmd = lib.mkForce false;
+        services.udev.extraRules = ''
+          # Remove NVIDIA USB xHCI Host Controller devices, if present
+          ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+          # Remove NVIDIA USB Type-C UCSI devices, if present
+          ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+          # Remove NVIDIA Audio devices, if present
+          ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+          # Remove NVIDIA VGA/3D controller devices
+          ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+        '';
 
-  #       prime.sync.enable = lib.mkForce true;
-  #       # Dynamic Boost. It is a technology found in NVIDIA Max-Q design laptops with RTX GPUs.
-  #       # It intelligently and automatically shifts power between
-  #       # the CPU and GPU in real-time based on the workload of your game or application.
-  #       dynamicBoost.enable = lib.mkForce true;
-  #     };
-  #   };
-  # };
+        boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+      };
+    };
+  };
 }

@@ -50,7 +50,9 @@
         enable_swallow = true;
         focus_on_activate = true;
       };
-
+      cursor = {
+        no_hardware_cursors = true;
+      };
       dwindle = {
         no_gaps_when_only = true;
         force_split = 0;
