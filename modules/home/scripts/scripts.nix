@@ -15,7 +15,7 @@
   extract = pkgs.writeScriptBin "extract" (builtins.readFile ./scripts/extract.sh);
   
   shutdown-script = pkgs.writeScriptBin "shutdown-script" (builtins.readFile ./scripts/shutdown-script.sh);
-  
+  refresh-rate = pkgs.writeScriptBin "refresh-rate" (builtins.readFile ./scripts/refresh-rate.sh);
   show-keybinds = pkgs.writeScriptBin "show-keybinds" (builtins.readFile ./scripts/keybinds.sh);
   
   vm-start = pkgs.writeScriptBin "vm-start" (builtins.readFile ./scripts/vm-start.sh);
@@ -39,7 +39,7 @@ in {
     extract
 
     shutdown-script
-    
+    refresh-rate
     show-keybinds
 
     vm-start

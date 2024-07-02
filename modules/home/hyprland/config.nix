@@ -17,6 +17,7 @@
         "poweralertd &"
         "waybar &"
         "mako &"
+        "refresh-rate &"
       ];
 
       input = {
