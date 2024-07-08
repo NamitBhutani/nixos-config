@@ -5,10 +5,10 @@
 
     theme = "Catppuccin-Mocha";
     
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 13;
-    };
+ #   font = {
+  #    name = "JetBrainsMono Nerd Font";
+  #    size = 13;
+ #   };
 
     settings = {
       confirm_os_window_close = 0;

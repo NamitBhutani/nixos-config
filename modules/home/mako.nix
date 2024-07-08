@@ -3,7 +3,7 @@
   services = {
     mako = {
       enable = true;
-      font = "JetBrainsMono Nerd Font 12";
+    #  font = "JetBrainsMono Nerd Font 12";
       padding = "15";
       defaultTimeout = 5000;
       borderSize = 2;
