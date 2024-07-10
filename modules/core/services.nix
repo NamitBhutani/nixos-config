@@ -10,11 +10,11 @@
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
-    services.sunshine = {
-    package = pkgs.sunshine.override { cudaSupport=true; };
-    enable = true;
-    autoStart = false;
-    capSysAdmin = true;
-    openFirewall = true;
-  };
+  #   services.sunshine = {
+  #   package = pkgs.sunshine.override { cudaSupport=true; };
+  #   enable = true;
+  #   autoStart = false;
+  #   capSysAdmin = true;
+  #   openFirewall = true;
+  # };
 }
