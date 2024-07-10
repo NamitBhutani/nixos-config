@@ -5,6 +5,6 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
-    "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1"
+   # "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1"
   ];
 }
