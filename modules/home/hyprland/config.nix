@@ -75,27 +75,27 @@
         # inactive_opacity = 0.90;
         # fullscreen_opacity = 1.0;
 
-        blur = {
-          enabled = true;
-          size = 1;
-          passes = 1;
-          # size = 4;
-          # passes = 2;
-          brightness = 1;
-          contrast = 1.400;
-          ignore_opacity = true;
-          noise = 0;
-          new_optimizations = true;
-          xray = true;
-        };
+        # blur = {
+        #   enabled = true;
+        #   size = 1;
+        #   passes = 1;
+        #   # size = 4;
+        #   # passes = 2;
+        #   brightness = 1;
+        #   contrast = 1.400;
+        #   ignore_opacity = true;
+        #   noise = 0;
+        #   new_optimizations = true;
+        #   xray = true;
+        # };
 
-        drop_shadow = true;
+        # drop_shadow = true;
 
-        shadow_ignore_window = true;
-        shadow_offset = "0 2";
-        shadow_range = 20;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(00000055)";
+        # shadow_ignore_window = true;
+        # shadow_offset = "0 2";
+        # shadow_range = 20;
+        # shadow_render_power = 3;
+        # "col.shadow" = "rgba(00000055)";
       };
 
       animations = {

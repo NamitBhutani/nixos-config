@@ -17,7 +17,6 @@
 
   environment.systemPackages = with pkgs; [
     pulseaudio
-    wget
     git
   ];
 
