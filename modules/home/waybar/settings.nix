@@ -9,11 +9,11 @@
     margin-left= 0;
     margin-right= 0;
     modules-left= [
-        "temperature"
         "custom/launcher" 
         "hyprland/workspaces"
     ];
     modules-center= [
+        "temperature"
         "clock"
     ];
     modules-right= [
@@ -114,7 +114,7 @@
         tooltip= "false";
     };
     temperature = {
-        hwmon-path="/sys/class/hwmon/hwmon4/temp1_input";
+        hwmon-path="/sys/class/hwmon/hwmon5/temp1_input";
         format= " {temperatureC}°C";
         interval= 10;
     };

@@ -1,7 +1,7 @@
 { ... }:
 {
   home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+    #NIXOS_OZONE_WL = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
    # _JAVA_AWT_WM_NONEREPARENTING = "1";
     SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
@@ -17,6 +17,7 @@
     QT_QPA_PLATFORM = "xcb";
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_STYLE_OVERRIDE = "kvantum";
+    #LAPTOP_KB_ENABLED = 1;
    # MOZ_ENABLE_WAYLAND = "1";
    # WLR_NO_HARDWARE_CURSORS = "1";
     XDG_SESSION_TYPE = "wayland";

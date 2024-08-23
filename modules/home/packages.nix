@@ -10,13 +10,14 @@
     gtrash                            # rm replacement, put deleted files in system trash
     jdk17                             # java
     libreoffice
-    cinnamon.nemo-with-extensions     # file manager
+    nautilus                          # file manager
     nitch                             # systhem fetch util
     nix-prefetch-github
     ripgrep                           # grep replacement
     soundwireserver                   # pass audio to android phone
     yazi                              # terminal file manager
-
+    wl-clipboard                      # wayland clipboard manager
+    cliphist                          # clipboard history
     # C / C++
     gcc
     gnumake
@@ -43,5 +44,7 @@
     wget
     xdg-utils
     xxd
+    linux-wifi-hotspot
+    godot_4
   ]);
 }

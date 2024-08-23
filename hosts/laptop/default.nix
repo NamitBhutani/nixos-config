@@ -9,6 +9,8 @@
     acpi
     brightnessctl
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   services = {    
      thermald.enable = true;
