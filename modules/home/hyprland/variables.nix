@@ -23,7 +23,7 @@
     XDG_SESSION_TYPE = "wayland";
   #  SDL_VIDEODRIVER = "wayland";
    # CLUTTER_BACKEND = "wayland";
-    GTK_THEME = "Catppuccin-Mocha-Compact-Lavender-Dark";
+    GTK_THEME = "Dracula";
     #WLR_DRM_DEVICES="$HOME/.config/hypr/card";
   };
 }

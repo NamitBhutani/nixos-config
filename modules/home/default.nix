@@ -18,6 +18,6 @@
     ++ [(import ./swaylock.nix)]                  # lock screen
     ++ [(import ./vscode.nix)]                    # vscode
     ++ [(import ./waybar)]                        # status bar
-    ++ [(import ./wofi.nix)]                      # launcher
+    ++ [(import ./wofi.nix)]                  # launcher
     ++ [(import ./zsh.nix)];                      # shell
 }

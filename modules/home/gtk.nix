@@ -21,15 +21,10 @@
         accent = "lavender";
       };
     };
-    # theme = {
-    #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     accents = [ "lavender" ];
-    #     size = "compact";
-    #     # tweaks = [ "rimless" ];
-    #     variant = "mocha";
-    #   };
-    # };
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
     cursorTheme = {
       name = "Nordzy-cursors";
       package = pkgs.nordzy-cursor-theme;

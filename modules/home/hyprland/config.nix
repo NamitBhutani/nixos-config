@@ -20,6 +20,7 @@
         "waybar &"
         "mako &"
         "refresh-rate &"
+        "lxqt-policykit-agent"
       ];
 
       input = {
@@ -133,7 +134,7 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, floorp --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, kitty"
         "ALT, Return, exec, kitty --title float_kitty"
         "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"

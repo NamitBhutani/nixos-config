@@ -45,6 +45,10 @@
     xdg-utils
     xxd
     linux-wifi-hotspot
+    linux-router-without-wifi
+    hostapd
+    iw
     godot_4
+    mcontrolcenter
   ]);
 }

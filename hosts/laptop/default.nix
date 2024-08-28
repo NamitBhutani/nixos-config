@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
+    lxqt.lxqt-policykit
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -56,7 +57,7 @@
   };
 
   boot = {
-    kernelModules = ["acpi_call"];
+    kernelModules = ["acpi_call" "ec_sys"];
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
