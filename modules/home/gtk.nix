@@ -7,7 +7,10 @@
    pkgs.twemoji-color-font
    pkgs.noto-fonts-emoji
  ];
-
+    catppuccin = {
+      enable = true;
+      accent = "lavender";
+    };
   gtk = {
     enable = true;
    font = {
@@ -21,10 +24,13 @@
         accent = "lavender";
       };
     };
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
+    catppuccin = {
+      enable = true;
+      accent = "lavender";
+      gnomeShellTheme = true;
     };
+
+
     cursorTheme = {
       name = "Nordzy-cursors";
       package = pkgs.nordzy-cursor-theme;

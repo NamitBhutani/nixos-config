@@ -8,7 +8,7 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
-    lxqt.lxqt-policykit
+    polkit_gnome
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

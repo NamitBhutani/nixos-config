@@ -1,6 +1,9 @@
-{ pkgs, inputs, username, host, ...}:
+{ pkgs, inputs, username, host, ... }:
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [ 
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -8,8 +11,10 @@
     users.${username} = {
       imports = 
         if (host == "desktop") then 
-          [ ./../home/default.desktop.nix ] 
-        else [ ./../home ];
+          [ ./../home/default.desktop.nix inputs.catppuccin.homeManagerModules.catppuccin ] 
+        else 
+          [ ./../home inputs.catppuccin.homeManagerModules.catppuccin ];
+      
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "23.11";
@@ -23,5 +28,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+
   nix.settings.allowed-users = [ "${username}" ];
 }

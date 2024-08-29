@@ -20,7 +20,6 @@
         "waybar &"
         "mako &"
         "refresh-rate &"
-        "lxqt-policykit-agent"
       ];
 
       input = {
@@ -45,6 +44,11 @@
         no_border_on_floating = false;
       };
 
+      gestures = {
+        workspace_swipe = true;
+        
+      };
+      
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
