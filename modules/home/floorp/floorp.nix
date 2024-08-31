@@ -1,6 +1,6 @@
 { pkgs, ... }: 
 {
-  home.packages = with pkgs; [ microsoft-edge floorp ];
+  home.packages = with pkgs; [ floorp ];
 
   # nixpkgs.overlays = [
   #   (final: prev: {

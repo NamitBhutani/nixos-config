@@ -4,7 +4,7 @@
     ++ [(import ./bat.nix)]                       # better cat command
     ++ [(import ./btop.nix)]                      # resouces monitor
     ++ [(import ./discord.nix)]                   # discord with catppuccin theme
-    ++ [(import ./edge/edge.nix)]                 # edge browser
+    ++ [(import ./floorp/floorp.nix)]             # browser
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager

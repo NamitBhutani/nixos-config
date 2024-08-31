@@ -24,6 +24,7 @@
         dataDir = "/home/intellomaniac/Documents/obsidian-vault";    # Default folder for new synced folders
         configDir = "/home/intellomaniac/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
     };
+    cloudflare-warp.enable = true;
 };
 
 systemd = {
