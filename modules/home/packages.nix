@@ -51,5 +51,6 @@
     godot_4
     mcontrolcenter
     wezterm
+    ulauncher
   ]);
 }

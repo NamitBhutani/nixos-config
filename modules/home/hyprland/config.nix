@@ -41,7 +41,7 @@
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
         border_part_of_window = false;
-        no_border_on_floating = false;
+        no_border_on_floating = true;
       };
 
       gestures = {
@@ -147,7 +147,7 @@
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, pkill wofi || wofi --show drun"
+        # "$mainMod, D, exec, pkill wofi || wofi --show drun"
         "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord'"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
@@ -233,6 +233,8 @@
 
         #clipboard manager
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+
+        "$mainMod, D, exec, ulauncher"
       ];
 
       # mouse binding
@@ -292,6 +294,9 @@
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
+        "float,class:Ulauncher"
+        "noborder,class:Ulauncher"
+
       ];
 
     };

@@ -6,12 +6,15 @@
       devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
-      splashImage = ./pxfuel.png;
+      # catppuccin = {
+      #   enable = true;
+      #   flavor = "mocha";
+      # };
     };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
-    "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" "ec_sys.write_support=1"
+    "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1"
   ];  
 }

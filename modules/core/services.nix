@@ -11,19 +11,21 @@
     HandlePowerKey=ignore
   '';
     services.sunshine = {
-    package = pkgs.sunshine.override { cudaSupport=true; };
+    package = pkgs.sunshine.override { cudaSupport = true;  };
     enable = true;
     autoStart = false;
     capSysAdmin = true;
     openFirewall = true;
   };
+
+  
   services = {
-    syncthing = {
-        enable = true;
-        user = "intellomaniac";
-        dataDir = "/home/intellomaniac/Documents/obsidian-vault";    # Default folder for new synced folders
-        configDir = "/home/intellomaniac/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
-    };
+    # syncthing = {
+    #     enable = true;
+    #     user = "intellomaniac";
+    #     dataDir = "/home/intellomaniac/Documents/obsidian-vault";    # Default folder for new synced folders
+    #     configDir = "/home/intellomaniac/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
+    # };
     cloudflare-warp.enable = true;
 };
 
