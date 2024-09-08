@@ -52,5 +52,6 @@
     mcontrolcenter
     wezterm
     ulauncher
+    smile
   ]);
 }

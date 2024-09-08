@@ -160,6 +160,7 @@
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
         "$mainMod, W,exec, pkill wofi || wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
+        "$mainMod, S, exec, smile"
 
         # screenshot
         "$mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
@@ -255,6 +256,7 @@
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
         "float,audacious"
+        "float,smile"
         "workspace 8 silent, audacious"
         "pin,wofi"
         "float,wofi"
