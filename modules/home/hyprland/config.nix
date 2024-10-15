@@ -62,7 +62,7 @@
         no_hardware_cursors = true;
       };
       dwindle = {
-        no_gaps_when_only = true;
+        #no_gaps_when_only = true;
         force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
@@ -73,7 +73,7 @@
 
       master = {
         special_scale_factor = 1;
-        no_gaps_when_only = false;
+        #no_gaps_when_only = false;
       };
 
       decoration = {
