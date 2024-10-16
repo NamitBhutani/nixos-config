@@ -1,0 +1,3 @@
+[submodule "modules/home/nvim/config"]
+	path = modules/home/nvim/config
+	url = git@github.com:nvim-lua/kickstart.nvim.git
