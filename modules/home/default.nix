@@ -8,7 +8,7 @@
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager
-    ++ [(import ./kitty.nix)]                     # terminal
+  #++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
     ++ [(import ./micro.nix)]                     # nano replacement
     ++ [(import ./nvim/nvim.nix)]                 # neovim editor
@@ -18,6 +18,7 @@
     ++ [(import ./swaylock.nix)]                  # lock screen
     ++ [(import ./vscode.nix)]                    # vscode
     ++ [(import ./waybar)]                        # status bar
-    ++ [(import ./wofi.nix)]                  # launcher
-    ++ [(import ./zsh.nix)];                      # shell
+    ++ [(import ./wofi.nix)]                      # launcher
+    ++ [(import ./zsh.nix)]                       # shell
+    ++ [(import ./wezterm/wezterm.nix)];          # terminal
 }

@@ -7,8 +7,7 @@
     catppuccin.url = "github:catppuccin/nix";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-
-  
+    wezterm.url = "github:wez/wezterm?dir=nix";
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";

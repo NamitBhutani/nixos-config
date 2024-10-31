@@ -50,7 +50,6 @@
     iw
     godot_4
     mcontrolcenter
-    wezterm
     ulauncher
     smile
   ]);
