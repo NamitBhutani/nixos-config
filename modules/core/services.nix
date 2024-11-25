@@ -10,14 +10,31 @@
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
   '';
-    services.sunshine = {
-    package = pkgs.sunshine.override { cudaSupport = true;  };
-    enable = true;
-    autoStart = false;
-    capSysAdmin = true;
-    openFirewall = true;
-  };
 
+  services.sunshine = {
+    enable = true;
+    # Enable nvenc support
+    package = with pkgs;
+      (pkgs.sunshine.override {
+        cudaSupport = true;
+        cudaPackages = cudaPackages;
+      })
+      .overrideAttrs (old: {
+        nativeBuildInputs =
+          old.nativeBuildInputs
+          ++ [
+            cudaPackages.cuda_nvcc
+            (lib.getDev cudaPackages.cuda_cudart)
+          ];
+        cmakeFlags =
+          old.cmakeFlags
+          ++ [
+            "-DCMAKE_CUDA_COMPILER=${(lib.getExe cudaPackages.cuda_nvcc)}"
+          ];
+      });
+    openFirewall = true;
+    capSysAdmin = true;
+  };
   
   services = {
     # syncthing = {
