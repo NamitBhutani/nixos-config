@@ -13,6 +13,7 @@
 
   services.sunshine = {
     enable = true;
+    autoStart = false;
     # Enable nvenc support
     package = with pkgs;
       (pkgs.sunshine.override {

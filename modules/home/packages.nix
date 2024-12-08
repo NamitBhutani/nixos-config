@@ -45,12 +45,13 @@
     xdg-utils
     xxd
     linux-wifi-hotspot
-    linux-router-without-wifi
+    undervolt
     hostapd
     iw
     godot_4
     mcontrolcenter
     ulauncher
+    whatsapp-for-linux
     smile
   ]);
 }
