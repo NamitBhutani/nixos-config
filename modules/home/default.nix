@@ -20,5 +20,6 @@
     ++ [(import ./waybar)]                        # status bar
     ++ [(import ./wofi.nix)]                      # launcher
     ++ [(import ./zsh.nix)]                       # shell
+    ++ [(import ./spicetify.nix)]                 # spicetify
     ++ [(import ./wezterm/wezterm.nix)];          # terminal
 }

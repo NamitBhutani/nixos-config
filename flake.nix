@@ -13,7 +13,10 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
-  
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +24,7 @@
 
   };
 
-  outputs = { nixpkgs, self, catppuccin, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, self, catppuccin, home-manager, spicetify-nix, ... } @ inputs:
   let
     username = "intellomaniac";
     system = "x86_64-linux";
@@ -36,7 +39,7 @@
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          (import ./hosts/laptop) 
+          (import ./hosts/laptop)
           
         ];
         specialArgs = { host = "laptop"; inherit self inputs username; };
