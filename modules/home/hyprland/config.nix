@@ -298,6 +298,9 @@
         "float,title:^(File Operation Progress)$"
         "float,class:Ulauncher"
         "noborder,class:Ulauncher"
+        "workspace 5 silent, class:^(spotify)$"
+        "workspace 4 silent, class:^(discord)$"
+
 
       ];
 

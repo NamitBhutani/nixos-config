@@ -46,6 +46,7 @@
     xxd
     linux-wifi-hotspot
     undervolt
+    unityhub
     hostapd
     iw
     godot_4
