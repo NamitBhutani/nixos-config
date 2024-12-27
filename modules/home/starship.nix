@@ -2,7 +2,7 @@
 {
   programs.starship = {
     enable = true;
-
+    catppuccin.enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
@@ -35,7 +35,8 @@
         # "Pictures" = " ";
       # };
 
-      palette = "catppuccin_mocha";
-    } // builtins.fromTOML (builtins.readFile "${inputs.catppuccin-starship}/palettes/mocha.toml");
+     
+    };
+    #// builtins.fromTOML (builtins.readFile "${inputs.catppuccin-starship}/palettes/mocha.toml");
   };
 }

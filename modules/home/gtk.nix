@@ -2,12 +2,15 @@
 {
   fonts.fontconfig.enable = true;
  home.packages = [
-   pkgs.nerdfonts
-   (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+   pkgs.nerd-fonts.jetbrains-mono
+   #(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
    pkgs.twemoji-color-font
    pkgs.noto-fonts-emoji
  ];
-
+    catppuccin = {
+      enable = true;
+      accent = "lavender";
+    };
   gtk = {
     enable = true;
    font = {
@@ -21,15 +24,13 @@
         accent = "lavender";
       };
     };
-    # theme = {
-    #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     accents = [ "lavender" ];
-    #     size = "compact";
-    #     # tweaks = [ "rimless" ];
-    #     variant = "mocha";
-    #   };
-    # };
+    catppuccin = {
+      enable = true;
+      accent = "lavender";
+      gnomeShellTheme = true;
+    };
+
+
     cursorTheme = {
       name = "Nordzy-cursors";
       package = pkgs.nordzy-cursor-theme;

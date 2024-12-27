@@ -8,7 +8,7 @@
     hyprshade
     grim
     slurp
-    wl-clipboard
+    wl-clip-persist
     wf-recorder
     glib
     wayland

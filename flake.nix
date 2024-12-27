@@ -4,33 +4,27 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
-  
+    catppuccin.url = "github:catppuccin/nix";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-  
-    # nix-gaming.url = "github:fufexan/nix-gaming";
-  
+    wezterm.url = "github:wez/wezterm?dir=nix";
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-    catppuccin-starship = {
-      url = "github:catppuccin/starship";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, self, ... } @ inputs:
+  outputs = { nixpkgs, self, catppuccin, home-manager, spicetify-nix, ... } @ inputs:
   let
     username = "intellomaniac";
     system = "x86_64-linux";
@@ -45,10 +39,8 @@
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          (import ./hosts/laptop) 
-          # ({ config, pkgs, ... }: {
-          #   nixpkgs.overlays = [ nvidia-patch.overlays.default ];
-          # })
+          (import ./hosts/laptop)
+          
         ];
         specialArgs = { host = "laptop"; inherit self inputs username; };
       };

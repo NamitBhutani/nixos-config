@@ -1,4 +1,4 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
   wayland.windowManager.hyprland = {
     settings = {
@@ -9,7 +9,9 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
         "nm-applet &"
-        "wl-clipboard-history -t"
+        #"wl-clipboard-history -t"
+        "wl-clip-persist --clipboard both"
+        "wl-paste --watch cliphist store &"
         "hyprshade on vibrance-boosted"
         "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
         "sleep 1 && swaylock"
@@ -33,15 +35,20 @@
       general = {
         "$mainMod" = "SUPER";
         layout = "dwindle";
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 2;
+        gaps_out = 2;
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
         border_part_of_window = false;
-        no_border_on_floating = false;
+        no_border_on_floating = true;
       };
 
+      gestures = {
+        workspace_swipe = true;
+        
+      };
+      
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
@@ -55,7 +62,7 @@
         no_hardware_cursors = true;
       };
       dwindle = {
-        no_gaps_when_only = true;
+        #no_gaps_when_only = true;
         force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
@@ -66,11 +73,11 @@
 
       master = {
         special_scale_factor = 1;
-        no_gaps_when_only = false;
+        #no_gaps_when_only = false;
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 5;
         # active_opacity = 0.90;
         # inactive_opacity = 0.90;
         # fullscreen_opacity = 1.0;
@@ -89,14 +96,14 @@
         #   xray = true;
         # };
 
-      #   drop_shadow = true;
+        # drop_shadow = true;
 
-      #   shadow_ignore_window = true;
-      #   shadow_offset = "0 2";
-      #   shadow_range = 20;
-      #   shadow_render_power = 3;
-      #   "col.shadow" = "rgba(00000055)";
-       };
+        # shadow_ignore_window = true;
+        # shadow_offset = "0 2";
+        # shadow_range = 20;
+        # shadow_render_power = 3;
+        # "col.shadow" = "rgba(00000055)";
+      };
 
       animations = {
         enabled = true;
@@ -131,28 +138,29 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        "$mainMod, Return, exec, kitty"
-        "ALT, Return, exec, kitty --title float_kitty"
-        "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"
+        "$mainMod, T, exec, floorp --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, Return, exec, wezterm"
+        "ALT, Return, exec, wezterm --title float_wezterm"
+        "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, pkill wofi || wofi --show drun"
+        # "$mainMod, D, exec, pkill wofi || wofi --show drun"
         "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord'"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
-        "$mainMod, E, exec, nemo"
+        "$mainMod, E, exec, nautilus"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
         "$mainMod, W,exec, pkill wofi || wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
+        "$mainMod, S, exec, smile"
 
         # screenshot
         "$mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
@@ -223,6 +231,11 @@
         ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
+
+        #clipboard manager
+        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+
+        "$mainMod, D, exec, ulauncher"
       ];
 
       # mouse binding
@@ -243,6 +256,7 @@
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
         "float,audacious"
+        "float,smile"
         "workspace 8 silent, audacious"
         "pin,wofi"
         "float,wofi"
@@ -282,6 +296,12 @@
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
+        "float,class:Ulauncher"
+        "noborder,class:Ulauncher"
+        "workspace 5 silent, class:^(spotify)$"
+        "workspace 4 silent, class:^(discord)$"
+
+
       ];
 
     };
@@ -292,6 +312,11 @@
       xwayland {
         force_zero_scaling = true
       }
+      $LAPTOP_KB_ENABLED = 1
+      device {
+  name = at-translated-set-2-keyboard
+  enabled = $LAPTOP_KB_ENABLED
+}
     ";
   };
 }

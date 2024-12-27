@@ -2,9 +2,9 @@
 {
   programs.btop = {
     enable = true;
+    catppuccin.enable = true;
     
     settings = {
-      color_theme = "dracula";
       theme_background = false;
       update_ms = 500;
     };

@@ -1,0 +1,1 @@
+pkexec --user root create_ap wlp6s0 CloudflareWARP 'test' '' --mkconfig /etc/create_ap.conf --freq-band 2.4 --ieee80211ax

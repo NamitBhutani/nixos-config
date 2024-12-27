@@ -19,7 +19,7 @@
   show-keybinds = pkgs.writeScriptBin "show-keybinds" (builtins.readFile ./scripts/keybinds.sh);
   
   vm-start = pkgs.writeScriptBin "vm-start" (builtins.readFile ./scripts/vm-start.sh);
-
+  toggle-keyboard = pkgs.writeScriptBin "toggle-keyboard" (builtins.readFile ./scripts/toggle-keyboard.sh);
   ascii = pkgs.writeScriptBin "ascii" (builtins.readFile ./scripts/ascii.sh);
 in {
   home.packages = with pkgs; [
@@ -32,7 +32,8 @@ in {
   
     toggle_blur
     toggle_oppacity
-
+    toggle-keyboard
+    
     maxfetch
 
     compress

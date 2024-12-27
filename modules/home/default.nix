@@ -4,11 +4,11 @@
     ++ [(import ./bat.nix)]                       # better cat command
     ++ [(import ./btop.nix)]                      # resouces monitor
     ++ [(import ./discord.nix)]                   # discord with catppuccin theme
-    ++ [(import ./edge/edge.nix)]                 # edge browser
+    ++ [(import ./floorp/floorp.nix)]             # browser
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager
-    ++ [(import ./kitty.nix)]                     # terminal
+   # ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
     ++ [(import ./micro.nix)]                     # nano replacement
     ++ [(import ./nvim/nvim.nix)]                 # neovim editor
@@ -19,5 +19,7 @@
     ++ [(import ./vscode.nix)]                    # vscode
     ++ [(import ./waybar)]                        # status bar
     ++ [(import ./wofi.nix)]                      # launcher
-    ++ [(import ./zsh.nix)];                      # shell
+    ++ [(import ./zsh.nix)]                       # shell
+    ++ [(import ./spicetify.nix)]                 # spicetify
+    ++ [(import ./wezterm/wezterm.nix)];          # terminal
 }

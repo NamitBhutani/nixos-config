@@ -8,7 +8,10 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
+    polkit_gnome
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   services = {    
      thermald.enable = true;
@@ -54,7 +57,7 @@
   };
 
   boot = {
-    kernelModules = ["acpi_call"];
+    kernelModules = ["acpi_call" "ec_sys"];
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
