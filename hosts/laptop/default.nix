@@ -3,12 +3,14 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    ./../../cachix.nix
   ];
 
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
     polkit_gnome
+    jq
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

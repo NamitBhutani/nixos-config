@@ -54,5 +54,6 @@
     ulauncher
     whatsapp-for-linux
     smile
+    cachix
   ]);
 }
