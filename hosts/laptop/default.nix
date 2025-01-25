@@ -33,12 +33,16 @@
       settings={
         CPU_ENERGY_PERF_POLICY_ON_BAT="power";
         PLATFORM_PROFILE_ON_BAT="low-power";
-        CPU_BOOST_ON_BAT=0;
-        CPU_HWP_DYN_BOOST_ON_BAT=0;
+        RUNTIME_PM_ON_BAT="auto";
         NMI_WATCHDOG=0;
         MEM_SLEEP_ON_BAT="deep";
         CPU_DRIVER_OPMODE_ON_BAT="passive";
         DEVICES_TO_DISABLE_ON_STARTUP="bluetooth";
+        CPU_BOOST_ON_BAT=0;
+        CPU_HWP_DYN_BOOST_ON_BAT=0;
+        WIFI_PWR_ON_BAT="on";
+        USB_EXCLUDE_PHONE=1;
+
       };
     };
 

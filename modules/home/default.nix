@@ -3,7 +3,7 @@
        [(import ./audacious/audacious.nix)]       # music player
     ++ [(import ./bat.nix)]                       # better cat command
     ++ [(import ./btop.nix)]                      # resouces monitor
-    ++ [(import ./discord.nix)]                   # discord with catppuccin theme
+   # ++ [(import ./discord.nix)]                   # discord with catppuccin theme
     ++ [(import ./floorp/floorp.nix)]             # browser
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme

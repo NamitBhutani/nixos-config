@@ -53,7 +53,9 @@
     mcontrolcenter
     ulauncher
     whatsapp-for-linux
+    cmake
     smile
     cachix
+    blender
   ]);
 }
