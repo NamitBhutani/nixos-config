@@ -24,11 +24,6 @@
         accent = "lavender";
       };
     };
-    catppuccin = {
-      enable = true;
-      accent = "lavender";
-      gnomeShellTheme = true;
-    };
 
 
     cursorTheme = {

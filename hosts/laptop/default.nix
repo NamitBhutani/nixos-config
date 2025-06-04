@@ -11,6 +11,8 @@
     brightnessctl
     polkit_gnome
     jq
+    mcontrolcenter
+    linuxKernel.packages.linux_6_12.msi-ec
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

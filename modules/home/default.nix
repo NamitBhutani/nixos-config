@@ -3,12 +3,13 @@
        [(import ./audacious/audacious.nix)]       # music player
     ++ [(import ./bat.nix)]                       # better cat command
     ++ [(import ./btop.nix)]                      # resouces monitor
-   # ++ [(import ./discord.nix)]                   # discord with catppuccin theme
-    ++ [(import ./floorp/floorp.nix)]             # browser
+    ++ [(import ./discord.nix)]                   # discord with catppuccin theme
+    ++ [(import ./browser/floorp.nix)]             # browser
+    ++ [(import ./browser/zen.nix)]
     ++ [(import ./git.nix)]                       # version control
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager
-   # ++ [(import ./kitty.nix)]                     # terminal
+    ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
     ++ [(import ./micro.nix)]                     # nano replacement
     ++ [(import ./nvim/nvim.nix)]                 # neovim editor
@@ -21,5 +22,7 @@
     ++ [(import ./wofi.nix)]                      # launcher
     ++ [(import ./zsh.nix)]                       # shell
     ++ [(import ./spicetify.nix)]                 # spicetify
+    ++ [(import ./catppuccin.nix)]
     ++ [(import ./wezterm/wezterm.nix)];          # terminal
+
 }

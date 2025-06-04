@@ -40,7 +40,7 @@
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
-        border_part_of_window = false;
+       # border_part_of_window = false;
         no_border_on_floating = true;
       };
 
@@ -138,7 +138,7 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, floorp --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, zen-twilight --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, wezterm"
         "ALT, Return, exec, wezterm --title float_wezterm"
         "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
@@ -147,7 +147,7 @@
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        # "$mainMod, D, exec, pkill wofi || wofi --show drun"
+        "$mainMod, D, exec, pkill wofi || wofi --show drun"
         "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord'"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
@@ -163,8 +163,8 @@
         "$mainMod, S, exec, smile"
 
         # screenshot
-        "$mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
-        ",Print, exec, grimblast --notify --cursor  copy area"
+        "$mainMod, Print, exec, grimblast --notify save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
+        ",Print, exec, grimblast --notify copy area"
 
         # switch focus
         "$mainMod, left, movefocus, l"
@@ -235,7 +235,6 @@
         #clipboard manager
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
-        "$mainMod, D, exec, ulauncher"
       ];
 
       # mouse binding
@@ -246,24 +245,24 @@
 
       # windowrule
       windowrule = [
-        "float,imv"
-        "center,imv"
-        "size 1200 725,imv"
-        "float,mpv"
-        "center,mpv"
-        "size 1200 725,mpv"
+        # "float,imv"
+        # "center,imv"
+        # "size 1200 725,imv"
+        # "float,mpv"
+        # "center,mpv"
+        # "size 1200 725,mpv"
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
-        "float,audacious"
-        "float,smile"
-        "workspace 8 silent, audacious"
-        "pin,wofi"
-        "float,wofi"
-        "noborder,wofi"
-        "tile, neovide"
-        "idleinhibit focus,mpv"
-        "float,udiskie"
+        # "float,audacious"
+        # "float,smile"
+        # "workspace 8 silent, audacious"
+        # "pin,wofi"
+        # "float,wofi"
+        # "noborder,wofi"
+        # "tile, neovide"
+        # "idleinhibit focus,mpv"
+        # "float,udiskie"
         "float,title:^(Transmission)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Firefox — Sharing Indicator)$"
@@ -307,7 +306,9 @@
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
+      monitor = eDP-1, 1920x1080@240, 0x0, 1.0
+      monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1.5
+
 
       xwayland {
         force_zero_scaling = true

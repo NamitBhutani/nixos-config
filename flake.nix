@@ -8,6 +8,10 @@
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     wezterm.url = "github:wez/wezterm?dir=nix";
+     zen-browser = {
+    url = "github:0xc000022070/zen-browser-flake";  
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";

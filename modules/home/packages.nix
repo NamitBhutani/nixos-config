@@ -46,16 +46,15 @@
     xxd
     linux-wifi-hotspot
     undervolt
-    unityhub
+    #unityhub
     hostapd
     iw
-    godot_4
-    mcontrolcenter
-    ulauncher
-    whatsapp-for-linux
+    #godot_4
+    #whatsapp-for-linux
     cmake
     smile
     cachix
     blender
+    #whatsie
   ]);
 }

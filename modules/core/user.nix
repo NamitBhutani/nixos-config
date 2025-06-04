@@ -5,6 +5,7 @@
   ];
 
   home-manager = {
+    backupFileExtension = "backup";
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host; };

@@ -14,12 +14,12 @@
       textColor = "#cdd6f4";
       icons = true;
       actions = true;
-      extraConfig = ''
-        text-alignment=center
-        [urgency=high]
-        default-timeout=100000000
-        border-color=#fab387
-      '';
+      # settings = ''
+      #   text-alignment=center
+      #   [urgency=high]
+      #   default-timeout=100000000
+      #   border-color=#fab387
+      # '';
     };
   };
 }
