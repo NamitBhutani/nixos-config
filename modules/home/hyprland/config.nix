@@ -116,21 +116,18 @@
         ];
 
         animation = [
-          # Windows
-          "windowsIn, 1, 3, easeOutCubic, popin 30%" # window open
-          "windowsOut, 1, 3, fluent_decel, popin 70%" # window close.
-          "windowsMove, 1, 2, easeinoutsine, slide" # everything in between, moving, dragging, resizing.
-
-          # Fade
-          "fadeIn, 1, 3, easeOutCubic" # fade in (open) -> layers and windows
-          "fadeOut, 1, 2, easeOutCubic" # fade out (close) -> layers and windows
-          "fadeSwitch, 0, 1, easeOutCirc" # fade on changing activewindow and its opacity
-          "fadeShadow, 1, 10, easeOutCirc" # fade on changing activewindow for shadows
-          "fadeDim, 1, 4, fluent_decel" # the easing of the dimming of inactive windows
-          "border, 1, 2.7, easeOutCirc" # for animating the border's color switch speed
-          "borderangle, 1, 30, fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
-          "workspaces, 1, 4, easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
-        ];
+          "windowsIn, 1, 1, easeOutCubic, popin 30%"
+          "windowsOut, 1, 1, easeOutCubic, popin 70%"
+          "windowsMove, 1, 1, easeOutCubic, slide"
+          "fadeIn, 1, 1, easeOutCubic"
+          "fadeOut, 1, 1, easeOutCubic"
+          "fadeSwitch, 0"
+          "fadeShadow, 1, 1, easeOutCubic"
+          "fadeDim, 1, 1, easeOutCubic"
+          "border, 1, 1, easeOutCubic"
+          "borderangle, 0" # disabled for performance
+          "workspaces, 1, 1, easeOutCubic, fade"
+];
       };
 
       bind = [
@@ -298,6 +295,7 @@
         "float,class:Ulauncher"
         "noborder,class:Ulauncher"
         "workspace 5 silent, class:^(spotify)$"
+        "workspace 5 silent, class:^(com.github.th_ch.youtube_music)$"
         "workspace 4 silent, class:^(discord)$"
 
 
@@ -307,7 +305,7 @@
 
     extraConfig = "
       monitor = eDP-1, 1920x1080@240, 0x0, 1.0
-      monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1.5
+      monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1.333333
 
 
       xwayland {

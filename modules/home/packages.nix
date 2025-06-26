@@ -45,6 +45,7 @@
     xdg-utils
     xxd
     linux-wifi-hotspot
+    youtube-music
     undervolt
     #unityhub
     hostapd
