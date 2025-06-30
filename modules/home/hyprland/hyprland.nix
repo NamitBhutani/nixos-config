@@ -4,7 +4,6 @@
     # swww
     swaybg
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
-    hyprpicker
     hyprshade
     grim
     slurp

@@ -12,9 +12,9 @@
     users.${username} = {
       imports = 
         if (host == "desktop") then 
-          [ ./../home/default.desktop.nix inputs.catppuccin.homeManagerModules.catppuccin ] 
+          [ ./../home/default.desktop.nix inputs.catppuccin.homeModules.catppuccin ] 
         else 
-          [ ./../home inputs.catppuccin.homeManagerModules.catppuccin ];
+          [ ./../home inputs.catppuccin.homeModules.catppuccin ];
       
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";

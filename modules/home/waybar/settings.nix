@@ -24,6 +24,7 @@
         "pulseaudio" 
         "battery"
         "network"
+        "custom/notification"
     ];
     clock= {
         calendar = {
@@ -107,16 +108,36 @@
         tooltip = true;
         tooltip-format = "{time}";
     };
+    temperature = {
+        hwmon-path="/sys/class/hwmon/hwmon5/temp1_input";
+        format= " {temperatureC}°C";
+        interval= 10;
+    };
     "custom/launcher"= {
         format= "";
         on-click= "pkill wofi || wofi --show drun";
         on-click-right= "pkill wofi || wallpaper-picker"; 
         tooltip= "false";
     };
-    temperature = {
-        hwmon-path="/sys/class/hwmon/hwmon5/temp1_input";
-        format= " {temperatureC}°C";
-        interval= 10;
+    "custom/notification" = {
+        tooltip = false;
+        format = "{icon}";
+        format-icons = {
+            notification = "<span foreground='#f38ba8'><sup></sup></span>   ";
+            none = "   ";
+            dnd-notification = "<span foreground='#f38ba8'><sup></sup></span>   ";
+            dnd-none = "   ";
+            inhibited-notification = "<span foreground='#f38ba8'><sup></sup></span>   ";
+            inhibited-none = "   ";
+            dnd-inhibited-notification = "<span foreground='#f38ba8'><sup></sup></span>   ";
+            dnd-inhibited-none = "   ";
+        };
+        return-type = "json";
+        exec-if = "which swaync-client";
+        exec = "swaync-client -swb";
+        on-click = "swaync-client -t -sw";
+        on-click-right = "swaync-client -d -sw";
+        escape = true;
     };
   };
 }

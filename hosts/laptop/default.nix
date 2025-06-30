@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-    ./../../cachix.nix
+    # ./../../cachix.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -12,9 +12,8 @@
     polkit_gnome
     jq
     mcontrolcenter
-    linuxKernel.packages.linux_6_12.msi-ec
   ];
-
+  nix.package = pkgs.lix;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   services = {    
