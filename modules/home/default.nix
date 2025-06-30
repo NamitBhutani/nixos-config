@@ -23,6 +23,7 @@
     ++ [(import ./zsh.nix)]                       # shell
     ++ [(import ./spicetify.nix)]                 # spicetify
     ++ [(import ./catppuccin.nix)]
+    ++ [(import ./qt.nix)]                       # qt theme
     ++ [(import ./wezterm/wezterm.nix)];          # terminal
 
 }

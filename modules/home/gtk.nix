@@ -7,10 +7,6 @@
    pkgs.twemoji-color-font
    pkgs.noto-fonts-emoji
  ];
-    catppuccin = {
-      enable = true;
-      accent = "lavender";
-    };
   gtk = {
     enable = true;
    font = {

@@ -19,6 +19,7 @@
         "poweralertd &"
         "waybar &"
         "swaync &"
+        "mcontrolcenter &"
         "refresh-rate &"
       ];
 

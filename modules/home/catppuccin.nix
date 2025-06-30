@@ -1,10 +1,11 @@
 { pkgs, ... }: 
 {
     catppuccin = {
-        starship.enable = true;
-        btop.enable = true;
+        enable = true;
+        kvantum.apply = true;
+        flavor = "mocha";
+        accent = "lavender";
         gtk.gnomeShellTheme = true;
         gtk.enable = true;
-        gtk.accent = "lavender";
     };
 }

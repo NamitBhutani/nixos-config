@@ -11,10 +11,15 @@
     brightnessctl
     polkit_gnome
     jq
+    jc
     mcontrolcenter
   ];
   nix.package = pkgs.lix;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+   environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_STYLE_OVERRIDE = "kvantum";
+    NIXOS_OZONE_WL = "1";
+  };
   
   services = {    
      thermald.enable = true;
