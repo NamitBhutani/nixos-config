@@ -18,7 +18,7 @@
         "uwsm app -- hyprctl setcursor Nordzy-cursors 22 &"
         "uwsm app -- poweralertd &"
         "uwsm app -- waybar &"
-        "uwsm app -- swaync &"
+        # "uwsm app -- swaync &"
         "uwsm app -- mcontrolcenter &"
         "uwsm app -- refresh-rate &"
       ];
