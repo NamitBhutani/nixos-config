@@ -20,6 +20,13 @@
       enable = true;
       # hidpi = true;
     };
+    settings = {
+      env = [
+        "NIXOS_OZONE_WL, 1"
+        "AQ_DRM_DEVICES, /dev/dri/card1"
+        "AQ_NO_ATOMIC, 1"
+      ];
+    };
     #enableNvidiaPatches = false;
     systemd.enable = true;
   };

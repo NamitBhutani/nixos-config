@@ -18,7 +18,6 @@
    environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "kvantum";
     QT_STYLE_OVERRIDE = "kvantum";
-    NIXOS_OZONE_WL = "1";
   };
   
   services = {    

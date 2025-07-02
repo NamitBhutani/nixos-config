@@ -22,6 +22,7 @@
   #  SDL_VIDEODRIVER = "wayland";
    # CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Catppuccin-Mocha-Compact-Lavender-Dark";
-    WLR_DRM_DEVICES="/dev/dri/card1";
+    # AQ_DRM_DEVICES="/dev/dri/card1";
+    # AQ_NO_ATOMIC = "1";
   };
 }
