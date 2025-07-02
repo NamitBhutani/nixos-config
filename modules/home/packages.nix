@@ -56,6 +56,7 @@
     smile
     cachix
     blender
+    swaynotificationcenter
     #whatsie
   ]);
 }
