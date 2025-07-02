@@ -19,7 +19,7 @@
     ++ [(import ./swaync/swaync.nix)]             # notification center
     ++ [(import ./vscode.nix)]                    # vscode
     ++ [(import ./waybar)]                        # status bar
-    ++ [(import ./wofi.nix)]                      # launcher
+    ++ [(import ./fuzzel.nix)]                      # launcher
     ++ [(import ./zsh.nix)]                       # shell
     ++ [(import ./spicetify.nix)]                 # spicetify
     ++ [(import ./catppuccin.nix)]

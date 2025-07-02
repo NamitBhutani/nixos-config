@@ -115,8 +115,8 @@
     };
     "custom/launcher"= {
         format= "";
-        on-click= "pkill wofi || wofi --show drun";
-        on-click-right= "pkill wofi || wallpaper-picker"; 
+        on-click= "fuzzel --launch-prefix=\"uwsm app -- \"";
+        on-click-right= "pkill fuzzel || wallpaper-picker"; 
         tooltip= "false";
     };
     "custom/notification" = {

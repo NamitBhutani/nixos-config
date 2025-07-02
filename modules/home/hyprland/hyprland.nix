@@ -13,20 +13,23 @@
     wayland
     direnv
   ];
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+  services.hyprpolkitagent.enable = true;
+  # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland = {
       enable = true;
       # hidpi = true;
     };
-    settings = {
-      env = [
-        "NIXOS_OZONE_WL, 1"
-        "AQ_DRM_DEVICES, /dev/dri/card1"
-      ];
-    };
+
+    # settings = {
+    #   env = [
+    #     "GDK_BACKEND, wayland"
+    #     "VDPAU_DRIVER,va_gl"
+    #     "LIBVA_DRIVER_NAME, iHD"
+    #   ];
+    # };
     #enableNvidiaPatches = false;
-    systemd.enable = true;
+    systemd.enable = false;
   };
 }

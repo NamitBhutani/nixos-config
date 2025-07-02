@@ -5,22 +5,22 @@
       
       # autostart
       exec-once = [
-        "systemctl --user import-environment &"
-        "hash dbus-update-activation-environment 2>/dev/null &"
-        "dbus-update-activation-environment --systemd &"
-        "nm-applet &"
+        # "uwsm app -- systemctl --user import-environment &"
+        # "uwsm app -- hash dbus-update-activation-environment 2>/dev/null &"
+        # "uwsm app -- dbus-update-activation-environment --systemd &"
+        "uwsm app -- nm-applet &"
         #"wl-clipboard-history -t"
-        "wl-clip-persist --clipboard both"
-        "wl-paste --watch cliphist store &"
-        "hyprshade on vibrance-boosted"
-        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        "sleep 1 && swaylock"
-        "hyprctl setcursor Nordzy-cursors 22 &"
-        "poweralertd &"
-        "waybar &"
-        "swaync &"
-        "mcontrolcenter &"
-        "refresh-rate &"
+        "uwsm app -- wl-clip-persist --clipboard both"
+        "uwsm app -- wl-paste --watch cliphist store &"
+        "uwsm app -- hyprshade on vibrance-boosted"
+        "uwsm app -- swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
+        "sleep 1 && uwsm app -- swaylock"
+        "uwsm app -- hyprctl setcursor Nordzy-cursors 22 &"
+        "uwsm app -- poweralertd &"
+        "uwsm app -- waybar &"
+        "uwsm app -- swaync &"
+        "uwsm app -- mcontrolcenter &"
+        "uwsm app -- refresh-rate &"
       ];
 
       input = {
@@ -58,6 +58,7 @@
         animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
+        vfr = true;
       };
       cursor = {
         no_hardware_cursors = true;
@@ -83,19 +84,12 @@
         # inactive_opacity = 0.90;
         # fullscreen_opacity = 1.0;
 
-        # blur = {
-        #   enabled = true;
-        #   size = 1;
-        #   passes = 1;
-        #   # size = 4;
-        #   # passes = 2;
-        #   brightness = 1;
-        #   contrast = 1.400;
-        #   ignore_opacity = true;
-        #   noise = 0;
-        #   new_optimizations = true;
-        #   xray = true;
-        # };
+        blur = {
+          enabled = false;
+        };
+        shadow = {
+          enabled = false;
+        };
 
         # drop_shadow = true;
 
@@ -133,31 +127,31 @@
 
       bind = [
         # show keybinds list
-        "$mainMod, F1, exec, show-keybinds"
+        "$mainMod, F1, exec, uwsm app -- show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, zen-twilight --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        "$mainMod, Return, exec, wezterm"
-        "ALT, Return, exec, wezterm --title float_wezterm"
-        "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
+        "$mainMod, T, exec, uwsm app -- zen-twilight --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, Return, exec, uwsm app -- wezterm"
+        "ALT, Return, exec, uwsm app -- wezterm --title float_wezterm"
+        "$mainMod SHIFT, Return, exec, uwsm app -- wezterm --start-as=fullscreen -o 'font_size=16'"
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, pkill wofi || wofi --show drun"
-        "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord'"
-        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-        "$mainMod, Escape, exec, swaylock"
+        "$mainMod, D, exec, fuzzel --launch-prefix=\"uwsm app -- \""
+        "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] uwsm app -- discord'"
+        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] uwsm app -- SoundWireServer'"
+        "$mainMod, Escape, exec, uwsm app -- swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
-        "$mainMod, E, exec, nautilus"
+        "$mainMod, E, exec, uwsm app -- nautilus"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
-        "$mainMod, W,exec, pkill wofi || wallpaper-picker"
+        "$mainMod, W,exec, pkill fuzzel || wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
-        "$mainMod, S, exec, smile"
+        "$mainMod, S, exec, uwsm app -- smile"
 
         # screenshot
         "$mainMod, Print, exec, grimblast --notify save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
@@ -230,7 +224,7 @@
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
 
         #clipboard manager
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
 
       ];
 

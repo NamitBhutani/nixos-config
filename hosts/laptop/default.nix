@@ -9,19 +9,26 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
-    polkit_gnome
+    hyprpolkitagent
     jq
     jc
     mcontrolcenter
   ];
   nix.package = pkgs.lix;
-   environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "kvantum";
-    QT_STYLE_OVERRIDE = "kvantum";
+  services.greetd = {
+  enable = true;
+  settings = rec {
+    initial_session = {
+      command = "uwsm start hyprland-uwsm.desktop";
+      user = "intellomaniac";
+    };
+    default_session = initial_session;
   };
-  
+};
+
   services = {    
      thermald.enable = true;
+    #  getty.autologinUser = "intellomaniac";
     # cpupower-gui.enable = true;
     #power-profiles-daemon.enable = true;
  
