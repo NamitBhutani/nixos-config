@@ -3,7 +3,7 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "modesetting" "nvidia" ];
   };
   services = {
     displayManager.autoLogin = {
