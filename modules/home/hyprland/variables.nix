@@ -13,12 +13,9 @@
     export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
     export DISABLE_QT5_COMPAT=0
     export DIRENV_LOG_FORMAT=""
-    export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json
-
   '';
   
   ".config/uwsm/env-hyprland".text = ''
-    export AQ_DRM_DEVICES=/dev/dri/card1
   '';
 };
 home.sessionVariables = {

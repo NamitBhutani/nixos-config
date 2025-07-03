@@ -21,8 +21,6 @@
     options nvidia "NVreg_DynamicPowerManagement=0x02"
   '';
 
-  boot.blacklistedKernelModules = [ "nvidia_drm" "nvidia_modeset" ];
-
   services.udev.extraRules = ''
     # Remove NVIDIA USB xHCI Host Controller devices, if present
   ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{remove}="1"

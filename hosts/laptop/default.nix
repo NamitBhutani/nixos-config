@@ -81,6 +81,28 @@
         acpi_call
       ];
   };
+  
+  specialisation = {
+    battery-mode = {
+      inheritParentConfig = true;
+      configuration = {
+        system.nixos.tags = [ "battery-mode" ];
+        boot.blacklistedKernelModules = [ "nvidia_drm" ];
+        
+        home-manager.users.intellomaniac = {
+          home.file = {
+            ".config/uwsm/env".text = ''
+              export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json
+            '';
+            
+            ".config/uwsm/env-hyprland".text = ''
+              export AQ_DRM_DEVICES=/dev/dri/card1
+            '';
+          };
+        };
+      };
+    };
+  };
 
  
 }

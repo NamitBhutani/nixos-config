@@ -46,6 +46,15 @@
         ];
         specialArgs = { host = "laptop"; inherit self inputs username; };
       };
+      battery = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          (import ./hosts/laptop)
+          (import ./hosts/battery)
+          
+        ];
+        specialArgs = { host = "battery"; inherit self inputs username; };
+      };
     };
   };
   nixConfig = {
