@@ -1,12 +1,12 @@
 { ... }:
 {
-    programs.fuzzel = {
+  programs.fuzzel = {
     enable = true;
     settings = {
       main = {
         width = 35;
         terminal = "wezterm -e";
-        font= "JetBrainsMono Nerd Font Mono:size=12";
+        font = "JetBrainsMono Nerd Font Mono:size=12";
         anchor = "center";
         use-bold = "yes";
         icon-theme = "Papirus-Dark";

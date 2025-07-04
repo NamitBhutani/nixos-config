@@ -1,4 +1,4 @@
-{ lib, inputs, ... }: 
+{ lib, inputs, ... }:
 {
   programs.starship = {
     enable = true;
@@ -8,7 +8,7 @@
 
     settings = {
       # right_format = "$cmd_duration";
-      
+
       directory = {
         format = "[ ](bold #89b4fa)[ $path ]($style)";
         style = "bold #b4befe";
@@ -24,17 +24,16 @@
         format = "[]($style)[[󰔚 ](bg:#161821 fg:#d4c097 bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)";
         disabled = false;
         style = "bg:none fg:#161821";
-    };        
+      };
 
       # directory.substitutions = {
-        # "~" = "󰋞";
-        # "Documents" = " ";
-        # "Downloads" = " ";
-        # "Music" = " ";
-        # "Pictures" = " ";
+      # "~" = "󰋞";
+      # "Documents" = " ";
+      # "Downloads" = " ";
+      # "Music" = " ";
+      # "Pictures" = " ";
       # };
 
-     
     };
     #// builtins.fromTOML (builtins.readFile "${inputs.catppuccin-starship}/palettes/mocha.toml");
   };

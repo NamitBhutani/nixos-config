@@ -1,7 +1,7 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   imports = [ ./kde.nix ];
-  
+
   qt = {
     enable = true;
     platformTheme.name = "kvantum";

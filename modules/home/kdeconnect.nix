@@ -14,7 +14,10 @@
   networking.firewall = rec {
     # allow TCP ports 1714 to 1764
     allowedTCPPortRanges = [
-      { from = 1714; to = 1764; }
+      {
+        from = 1714;
+        to = 1764;
+      }
     ];
 
     # use the same ranges for UDP

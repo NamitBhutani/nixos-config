@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   programs.dconf.enable = true;
   programs.kdeconnect.enable = true;

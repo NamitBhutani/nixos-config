@@ -1,9 +1,12 @@
-{ pkgs, username, ... }: 
+{ pkgs, username, ... }:
 {
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = [ "modesetting" "nvidia" ];
+    videoDrivers = [
+      "modesetting"
+      "nvidia"
+    ];
   };
   services = {
     displayManager.autoLogin = {

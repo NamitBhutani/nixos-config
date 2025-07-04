@@ -1,8 +1,8 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
-      
+
       # autostart
       exec-once = [
         # "uwsm app -- systemctl --user import-environment &"
@@ -40,15 +40,15 @@
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
-       # border_part_of_window = false;
+        # border_part_of_window = false;
         no_border_on_floating = true;
       };
 
       gestures = {
         workspace_swipe = true;
-        
+
       };
-      
+
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
@@ -121,7 +121,7 @@
           "border, 1, 1, easeOutCubic"
           "borderangle, 0" # disabled for performance
           "workspaces, 1, 1, easeOutCubic, fade"
-];
+        ];
       };
 
       bind = [
@@ -290,7 +290,6 @@
         "workspace 5 silent, class:^(spotify)$"
         "workspace 5 silent, class:^(com.github.th_ch.youtube_music)$"
         "workspace 4 silent, class:^(discord)$"
-
 
       ];
 
