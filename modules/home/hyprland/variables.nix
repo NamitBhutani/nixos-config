@@ -14,8 +14,9 @@
     export DISABLE_QT5_COMPAT=0
     export DIRENV_LOG_FORMAT=""
   '';
-  
+
   ".config/uwsm/env-hyprland".text = ''
+    export AQ_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
   '';
 };
 home.sessionVariables = {

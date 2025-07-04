@@ -38,12 +38,16 @@
   };
   
   services = {
-    # syncthing = {
-    #     enable = true;
-    #     user = "intellomaniac";
-    #     dataDir = "/home/intellomaniac/Documents/obsidian-vault";    # Default folder for new synced folders
-    #     configDir = "/home/intellomaniac/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
-    # };
+    greetd = {
+      enable = true;
+      settings = rec {
+      initial_session = {
+        command = "uwsm start hyprland-uwsm.desktop";
+        user = "intellomaniac";
+        };
+    default_session = initial_session;
+  };
+};
     cloudflare-warp.enable = true;
 };
 
