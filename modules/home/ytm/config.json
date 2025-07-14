@@ -1,0 +1,112 @@
+{
+	"window-size": {
+		"width": 1920,
+		"height": 1080
+	},
+	"window-maximized": true,
+	"window-position": {
+		"x": 0,
+		"y": 0
+	},
+	"options": {
+		"tray": true,
+		"appVisible": true,
+		"autoUpdates": true,
+		"alwaysOnTop": false,
+		"hideMenu": false,
+		"hideMenuWarned": false,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": false,
+		"removeUpgradeButton": false,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": false,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"likeButtons": "force",
+		"proxy": "",
+		"startingPage": "Uploaded Songs",
+		"overrideUserAgent": false,
+		"usePodcastParticipantAsArtist": false,
+		"themes": [
+			"/home/intellomaniac/.config/nixos-config/modules/home/ytm/ytm_mocha.css"
+		]
+	},
+	"plugins": {
+		"notifications": {
+			"enabled": true
+		},
+		"video-toggle": {
+			"enabled": false,
+			"hideVideo": false,
+			"mode": "disabled",
+			"forceHide": true,
+			"align": "left"
+		},
+		"precise-volume": {
+			"globalShortcuts": {}
+		},
+		"discord": {
+			"enabled": true,
+			"autoReconnect": true,
+			"activityTimeoutEnabled": true,
+			"activityTimeoutTime": 600000,
+			"playOnYouTubeMusic": true,
+			"hideGitHubButton": false,
+			"hideDurationLeft": false,
+			"listenAlong": true
+		},
+		"exponential-volume": {
+			"enabled": true
+		},
+		"playback-speed": {
+			"enabled": true
+		},
+		"captions-selector": {
+			"enabled": true
+		},
+		"lyrics-genius": {
+			"enabled": true
+		},
+		"synced-lyrics": {
+			"enabled": true
+		},
+		"compact-sidebar": {
+			"enabled": true
+		},
+		"blur-nav-bar": {
+			"enabled": true
+		},
+		"api-server": {
+			"enabled": false
+		},
+		"lumiastream": {
+			"enabled": false
+		},
+		"unobtrusive-player": {
+			"enabled": true
+		},
+		"tuna-obs": {
+			"enabled": false
+		},
+		"crossfade": {
+			"enabled": false
+		},
+		"scrobbler": {
+			"enabled": false
+		},
+		"skip-silences": {
+			"enabled": false
+		},
+		"album-actions": {
+			"enabled": true
+		},
+		"amuse": {
+			"enabled": false
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.9.0"
+		}
+	}
+}

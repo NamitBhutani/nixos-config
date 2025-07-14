@@ -28,6 +28,7 @@
     ++ [ (import ./spicetify.nix) ] # spicetify
     ++ [ (import ./catppuccin.nix) ]
     ++ [ (import ./qt.nix) ] # qt theme
-    ++ [ (import ./wezterm/wezterm.nix) ]; # terminal
+    ++ [ (import ./wezterm/wezterm.nix) ]
+    ++ [ (import ./ytm/ytm.nix) ]; # youtube music
 
 }
