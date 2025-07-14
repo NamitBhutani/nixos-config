@@ -7,12 +7,6 @@ let
 
   runbg = pkgs.writeShellScriptBin "runbg" (builtins.readFile ./scripts/runbg.sh);
   music = pkgs.writeShellScriptBin "music" (builtins.readFile ./scripts/music.sh);
-  lofi = pkgs.writeScriptBin "lofi" (builtins.readFile ./scripts/lofi.sh);
-
-  toggle_blur = pkgs.writeScriptBin "toggle_blur" (builtins.readFile ./scripts/toggle_blur.sh);
-  toggle_oppacity = pkgs.writeScriptBin "toggle_oppacity" (
-    builtins.readFile ./scripts/toggle_oppacity.sh
-  );
 
   maxfetch = pkgs.writeScriptBin "maxfetch" (builtins.readFile ./scripts/maxfetch.sh);
 
@@ -25,7 +19,6 @@ let
   refresh-rate = pkgs.writeScriptBin "refresh-rate" (builtins.readFile ./scripts/refresh-rate.sh);
   show-keybinds = pkgs.writeScriptBin "show-keybinds" (builtins.readFile ./scripts/keybinds.sh);
 
-  vm-start = pkgs.writeScriptBin "vm-start" (builtins.readFile ./scripts/vm-start.sh);
   toggle-keyboard = pkgs.writeScriptBin "toggle-keyboard" (
     builtins.readFile ./scripts/toggle-keyboard.sh
   );
@@ -37,11 +30,7 @@ in
     wallpaper-picker
 
     runbg
-    music
-    lofi
 
-    toggle_blur
-    toggle_oppacity
     toggle-keyboard
 
     maxfetch
@@ -52,8 +41,6 @@ in
     shutdown-script
     refresh-rate
     show-keybinds
-
-    vm-start
 
     ascii
   ];

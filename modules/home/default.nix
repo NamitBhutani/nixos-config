@@ -24,7 +24,7 @@
     ++ [ (import ./vscode.nix) ] # vscode
     ++ [ (import ./waybar) ] # status bar
     ++ [ (import ./fuzzel.nix) ] # launcher
-    ++ [ (import ./zsh.nix) ] # shell
+    ++ [ (import ./fish.nix) ] # shell
     ++ [ (import ./spicetify.nix) ] # spicetify
     ++ [ (import ./catppuccin.nix) ]
     ++ [ (import ./qt.nix) ] # qt theme

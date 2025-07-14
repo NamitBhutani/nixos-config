@@ -5,10 +5,10 @@
     swaybg
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     hyprshade
-    grim
+    # grim
     slurp
     wl-clip-persist
-    wf-recorder
+    # wf-recorder
     glib
     wayland
     direnv

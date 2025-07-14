@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   networking = {
     hostName = "nixos";
@@ -14,7 +14,7 @@
     #   # ];
     # };
   };
-
+  systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [ ];
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
   ];

@@ -1,13 +1,15 @@
-#!/usr/bin/env zsh
-respond=$(echo "---------------- Yes ----------------\n-------------- Restart --------------\n---------------- Nah ----------------" | fuzzel --dmenu)
-if [ $respond = '---------------- Yes ----------------' ]
-then
-echo "shutdown"
-shutdown now
-elif [ $respond = '-------------- Restart --------------' ]
-then
-echo "restart"
-reboot
-else
-notify-send "cancel shutdown"
-fi
+#!/usr/bin/env bash
+
+response=$(printf "Yes\nRestart\nNah" | fuzzel --dmenu)
+
+case "$response" in
+    "Yes")
+        shutdown now
+        ;;
+    "Restart")
+        reboot
+        ;;
+    *)
+        notify-send "Cancelled shutdown"
+        ;;
+esac
