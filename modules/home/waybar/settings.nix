@@ -21,6 +21,7 @@
       "cpu"
       "memory"
       "disk"
+      "backlight"
       "pulseaudio"
       "battery"
       "network"
@@ -120,6 +121,20 @@
       hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
       format = " {temperatureC}°C";
       interval = 10;
+    };
+    backlight = {
+      device = "intel_backlight";
+      format = "{icon} {percent}%";
+      format-icons = [
+        "󰃞"
+        "󰃟"
+        "󰃠"
+      ];
+      tooltip = true;
+      tooltip-format = "Brightness: {percent}%";
+      on-scroll-up = "brightnessctl set 1%+";
+      on-scroll-down = "brightnessctl set 1%-";
+      smooth-scrolling-threshold = 1.0;
     };
     "custom/launcher" = {
       format = "";

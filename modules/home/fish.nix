@@ -13,6 +13,9 @@
     shellInit = ''
       set -gx MICRO_TRUECOLOR 1
       set -g fish_greeting ""
+      set -g fish_escape_delay_ms 10
+      set -g __fish_git_prompt_show_informative_status 0
+      set -g __fish_git_prompt_hide_untrackedfiles 1
     '';
 
     shellAliases = {
@@ -23,7 +26,7 @@
       cat = "bat";
       nano = "micro";
       find = "fd";
-      grep = "rg";
+      grep = "rg --smart-case";
       code = "uwsm-app -- code";
 
       ls = "eza --icons --group-directories-first";

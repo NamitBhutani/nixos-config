@@ -46,46 +46,49 @@ in
         color: #b4befe;
     }
 
-    #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock, #battery {
+    #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock, #battery, #backlight {
         font-size: ${custom.font_size};
         color: ${custom.text_color};
     }
 
     #cpu {
         padding-left: 15px;
-        padding-right: 9px;
-        margin-left: 7px;
+        padding-right: 6px;
+        margin-left: 6px;
     }
     #memory {
-        padding-left: 9px;
-        padding-right: 9px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
     #disk {
-        padding-left: 9px;
+        padding-left: 6px;
         padding-right: 15px;
     }
 
     #tray {
         padding: 0 20px;
-        margin-left: 7px;
+        margin-left: 6px;
+    }
+    #backlight {
+        padding-left: 15px;
+        padding-right: 6px;
     }
 
     #pulseaudio {
-        padding-left: 15px;
-        padding-right: 9px;
-        margin-left: 7px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
     #battery {
-        padding-left: 9px;
-        padding-right: 9px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
     #network {
-        padding-left: 9px;
+        padding-left: 6px;
         padding-right: 15px;
     }
 
     #clock {
-        padding-left: 9px;
+        padding-left: 6px;
         padding-right: 15px;
     }
 
@@ -99,7 +102,7 @@ in
 
     #temperature {
     color: ${custom.text_color};
-        padding-left: 9px;
+        padding-left: 25px;
         padding-right: 15px;
     }
   '';
