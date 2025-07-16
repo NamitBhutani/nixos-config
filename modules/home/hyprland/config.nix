@@ -9,6 +9,7 @@
         # "uwsm app -- hash dbus-update-activation-environment 2>/dev/null &"
         # "uwsm app -- dbus-update-activation-environment --systemd &"
         "uwsm app -- nm-applet &"
+        "swaync-wrapped &"
         #"wl-clipboard-history -t"
         "uwsm app -- wl-clip-persist --clipboard both"
         "uwsm app -- wl-paste --watch cliphist store &"
