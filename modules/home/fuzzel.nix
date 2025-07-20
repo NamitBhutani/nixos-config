@@ -6,7 +6,8 @@
       main = {
         width = 35;
         terminal = "wezterm -e";
-        font = "JetBrainsMono Nerd Font Mono:size=12";
+        font = "JetBrainsMono Nerd Font Mono:size=14";
+        dpi-aware = "no";
         anchor = "center";
         use-bold = "yes";
         icon-theme = "Papirus-Dark";

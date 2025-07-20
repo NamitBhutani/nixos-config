@@ -57,7 +57,7 @@
       cmake
       smile
       cachix
-      blender
+      # blender
       swaynotificationcenter
       #whatsie
     ]

@@ -69,9 +69,11 @@
   boot = {
     kernelModules = [
       "acpi_call"
+      "msi-ec"
       "ec_sys"
     ];
     extraModulePackages = with config.boot.kernelPackages; [
+      msi-ec
       acpi_call
     ];
   };
