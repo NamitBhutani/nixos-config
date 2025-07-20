@@ -193,7 +193,7 @@ label {
   /* unset the annoying focus thingie */
   all: unset;
   border: none;
-  opacity: 0;
+  opacity: 1;
   padding: 0px;
   box-shadow: none;
   /* selectable: no; */
