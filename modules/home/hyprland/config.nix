@@ -130,7 +130,7 @@
         "$mainMod, F1, exec, -- show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, uwsm-app -- zen-twilight --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, uwsm-app -- zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, uwsm-app -- wezterm"
         "ALT, Return, exec, uwsm-app -- wezterm --title float_wezterm"
         "$mainMod SHIFT, Return, exec, uwsm-app -- wezterm --start-as=fullscreen -o 'font_size=16'"
