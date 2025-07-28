@@ -28,7 +28,6 @@
     "title",
     "menubar#desktop",
     "volume",
-    "backlight#mobile",
     "mpris",
     "dnd",
     "notifications"
@@ -41,46 +40,42 @@
     },
     "menubar#desktop": {
       "menu#screenshot": {
-        "label": "  ",
+        "label": "⎙",
         "position": "left",
         "actions": [
           {
-            "label": "󰹑  Whole screen",
+            "label": "Screen",
             "command": "grimblast --notify --cursor --freeze copy output"
           },
           {
-            "label": "󰩭  Window / Region",
+            "label": "Region",
             "command": "grimblast --notify --cursor --freeze copy area"
           }
         ]
       },
       "menu#power-buttons": {
-        "label": "  ",
+        "label": "⏻",
         "position": "left",
         "actions": [
           {
-            "label": "  Lock",
+            "label": "Lock",
             "command": "swaylock"
           },
           {
-            "label": "  Reboot",
+            "label": "Reboot",
             "command": "systemctl reboot"
           },
           {
-            "label": "  Shut down",
+            "label": "Shut down",
             "command": "systemctl poweroff"
           }
         ]
       }
     },
-    "backlight#mobile": {
-      "label": " 󰃠 ",
-      "device": "panel"
-    },
     "volume": {
-      "label": "",
-      "expand-button-label": "",
-      "collapse-button-label": "",
+      "label": "♪",
+      "expand-button-label": "↓",
+      "collapse-button-label": "↑",
       "show-per-app": true,
       "show-per-app-icon": true,
       "show-per-app-label": false
