@@ -55,7 +55,7 @@
       #godot_4
       #whatsapp-for-linux
       cmake
-      smile
+      rofimoji
       cachix
       # blender
       swaynotificationcenter

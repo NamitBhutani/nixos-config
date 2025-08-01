@@ -144,6 +144,7 @@
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] uwsm-app -- SoundWireServer'"
         "$mainMod, Escape, exec, uwsm-app -- swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
+        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@151,0x0,1.0"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
         "$mainMod, E, exec, uwsm-app -- nautilus"
@@ -151,7 +152,7 @@
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
         "$mainMod, W,exec, pkill fuzzel || wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
-        "$mainMod, S, exec, uwsm-app -- smile"
+        "$mainMod, S, exec, uwsm-app -- rofimoji"
 
         # screenshot
         "$mainMod, Print, exec, grimblast --notify save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
