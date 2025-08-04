@@ -1,4 +1,15 @@
 { pkgs, config, ... }:
+let
+  mcontrolcenter-custom = pkgs.mcontrolcenter.overrideAttrs (oldAttrs: rec {
+    version = "0.6.9";
+    src = pkgs.fetchFromGitHub {
+      owner = "dmitry-s93";
+      repo = "MControlCenter";
+      rev = "b7afe131a1388bab5eeec474405d818473b24be3";
+      sha256 = "sha256-U3MDuKas97ZAfFl4UlgueqBx1FelQLgeguJQ9djJbS8=";
+    };
+  });
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -12,7 +23,8 @@
     hyprpolkitagent
     jq
     jc
-    mcontrolcenter
+    mcontrolcenter-custom
+    clash-meta
     nixfmt-rfc-style
   ];
 
@@ -69,11 +81,10 @@
   boot = {
     kernelModules = [
       "acpi_call"
-      "msi-ec"
+      # "msi-ec"
       "ec_sys"
     ];
     extraModulePackages = with config.boot.kernelPackages; [
-      msi-ec
       acpi_call
     ];
   };
