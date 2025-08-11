@@ -15,11 +15,14 @@
     };
     libinput = {
       enable = true;
-      # mouse = {
-      #   accelProfile = "flat";
-      # };
     };
   };
   # To prevent getting stuck at shutdown
-  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=5s
+  '';
+
+  systemd.user.extraConfig = ''
+    DefaultTimeoutStopSec=5s
+  '';
 }

@@ -2,25 +2,23 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
-
       # autostart
       exec-once = [
-        # "uwsm-app -- systemctl --user import-environment &"
-        # "uwsm-app -- hash dbus-update-activation-environment 2>/dev/null &"
-        # "uwsm-app -- dbus-update-activation-environment --systemd &"
-        "uwsm app -- nm-applet &"
-        "uwsm app -- swaync-wrapped &"
+        "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY GDK_BACKEND"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY GDK_BACKEND"
+        "nm-applet &"
+        "swaync-wrapped &"
         #"wl-clipboard-history -t"
-        "uwsm app -- wl-clip-persist --clipboard both"
-        "uwsm app -- wl-paste --watch cliphist store &"
-        "uwsm app -- hyprshade on vibrance-boosted"
-        "uwsm app -- swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        "sleep 1 && uwsm app -- swaylock"
-        "uwsm app -- hyprctl setcursor Nordzy-cursors 22 &"
-        "uwsm app -- poweralertd &"
-        "uwsm app -- waybar &"
-        "uwsm app -- mcontrolcenter &"
-        "uwsm app -- refresh-rate &"
+        "wl-clip-persist --clipboard both"
+        "wl-paste --watch cliphist store &"
+        "hyprshade on vibrance-boosted"
+        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
+        "sleep 1 &&  swaylock"
+        "hyprctl setcursor Nordzy-cursors 22 &"
+        "poweralertd &"
+        "waybar &"
+        "mcontrolcenter &"
+        "refresh-rate &"
       ];
 
       input = {
@@ -130,33 +128,33 @@
         "$mainMod, F1, exec, -- show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, uwsm-app -- zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        "$mainMod, Return, exec, uwsm-app -- wezterm"
-        "ALT, Return, exec, uwsm-app -- wezterm --title float_wezterm"
-        "$mainMod SHIFT, Return, exec, uwsm-app -- wezterm --start-as=fullscreen -o 'font_size=16'"
+        "$mainMod, T, exec, zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, Return, exec, wezterm"
+        "ALT, Return, exec, wezterm --title float_wezterm"
+        "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, fuzzel --launch-prefix=\"uwsm-app -- \""
-        "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] uwsm-app -- discord'"
-        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] uwsm-app -- SoundWireServer'"
-        "$mainMod, Escape, exec, uwsm-app -- swaylock"
+        "$mainMod, D, exec, fuzzel --launch-prefix=\"\""
+        "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord'"
+        "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
+        "$mainMod, Escape, exec, swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@151,0x0,1.0"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
-        "$mainMod, E, exec, uwsm-app -- nautilus"
+        "$mainMod, E, exec, nautilus"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
         "$mainMod, W,exec, pkill fuzzel || wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
-        "$mainMod, S, exec, uwsm-app -- rofimoji"
+        "$mainMod, S, exec, rofimoji"
 
         # screenshot
         "$mainMod, Print, exec, grimblast --notify save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
-        ",Print, exec, uwsm-app -- grimblast --notify copy area"
+        ",Print, exec, grimblast --notify copy area"
 
         # switch focus
         "$mainMod, left, movefocus, l"

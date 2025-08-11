@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/f518f96a60aceda4cd487437b25eaa48d0f1b97d";
     hypr-contrib.url = "github:hyprwm/contrib";
     wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser = {

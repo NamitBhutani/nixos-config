@@ -30,6 +30,11 @@ in
 
   nix.package = pkgs.lix;
 
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
+
   services = {
     thermald.enable = true;
     #  getty.autologinUser = "intellomaniac";

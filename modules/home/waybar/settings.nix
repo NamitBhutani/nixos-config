@@ -138,7 +138,7 @@
     };
     "custom/launcher" = {
       format = "";
-      on-click = "fuzzel --launch-prefix=\"uwsm-app -- \"";
+      on-click = "fuzzel";
       on-click-right = "pkill fuzzel || wallpaper-picker";
       tooltip = "false";
     };

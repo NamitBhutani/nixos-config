@@ -56,6 +56,7 @@
       #whatsapp-for-linux
       cmake
       rofimoji
+      hotspot
       cachix
       # blender
       swaynotificationcenter

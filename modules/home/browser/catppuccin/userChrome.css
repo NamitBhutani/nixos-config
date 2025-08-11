@@ -127,4 +127,10 @@
   #zen-appcontent-navbar-container {
     background-color: #181825 !important;
   }
+
+  #contentAreaContextMenu menu,
+  menuitem,
+  menupopup {
+    color: #c6d0f5 !important;
+  }
 }

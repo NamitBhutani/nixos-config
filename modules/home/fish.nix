@@ -27,7 +27,7 @@
       nano = "micro";
       find = "fd";
       grep = "rg --smart-case";
-      code = "uwsm-app -- code";
+      # code = "uwsm-app --code";
 
       ls = "eza --icons --group-directories-first";
       la = "eza --icons -a --group-directories-first";

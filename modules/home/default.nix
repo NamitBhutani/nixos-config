@@ -30,6 +30,7 @@
   ++ [ (import ./catppuccin.nix) ]
   ++ [ (import ./qt.nix) ] # qt theme
   ++ [ (import ./wezterm/wezterm.nix) ]
+  ++ [ (import ./gammastep.nix) ] # blue light filter
   ++ [ (import ./ytm/ytm.nix) ]; # youtube music
 
 }
