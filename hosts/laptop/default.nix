@@ -25,6 +25,7 @@ in
     jc
     mcontrolcenter-custom
     clash-meta
+    bzmenu
     nixfmt-rfc-style
   ];
 
@@ -36,6 +37,7 @@ in
   };
 
   services = {
+    blueman.enable = true;
     thermald.enable = true;
     #  getty.autologinUser = "intellomaniac";
     # cpupower-gui.enable = true;

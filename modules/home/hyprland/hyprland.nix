@@ -30,6 +30,6 @@
     #   ];
     # };
     #enableNvidiaPatches = false;
-    systemd.enable = false;
+    systemd.enable = true;
   };
 }

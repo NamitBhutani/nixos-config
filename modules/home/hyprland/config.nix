@@ -4,8 +4,9 @@
     settings = {
       # autostart
       exec-once = [
-        "systemctl --user import-environment WAYLAND_DISPLAY DISPLAY GDK_BACKEND"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY GDK_BACKEND"
+        "systemctl --user import-environment &"
+        "hash dbus-update-activation-environment 2>/dev/null &"
+        "dbus-update-activation-environment --systemd &"
         "nm-applet &"
         "swaync-wrapped &"
         #"wl-clipboard-history -t"

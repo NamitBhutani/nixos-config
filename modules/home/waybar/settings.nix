@@ -26,6 +26,7 @@
       "battery"
       "network"
       "custom/notification"
+      "bluetooth"
     ];
     clock = {
       calendar = {
@@ -62,6 +63,15 @@
         "5" = [ ];
       };
     };
+    bluetooth = {
+      format = " {status}";
+      format-connected = " {device_alias}";
+      format-disabled = "";
+      tooltip-format = "{controller_alias}\t{controller_address}";
+      tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+      tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+    };
+
     memory = {
       format = "󰟜 {}%";
       format-alt = "󰟜 {used} GiB"; # 
