@@ -20,7 +20,7 @@
   ++ [ (import ./packages.nix) ] # other packages
   ++ [ (import ./scripts/scripts.nix) ] # personal scripts
   ++ [ (import ./starship.nix) ] # shell prompt
-  #  ++ [ (import ./swaylock.nix) ] # lock screen
+  ++ [ (import ./hyprlock.nix) ] # lock screen
   ++ [ (import ./swaync/swaync.nix) ] # notification center
   ++ [ (import ./vscode.nix) ] # vscode
   ++ [ (import ./waybar) ] # status bar
