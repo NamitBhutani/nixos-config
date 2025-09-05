@@ -14,7 +14,7 @@
         "wl-paste --watch cliphist store &"
         "hyprshade on vibrance-boosted"
         "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        "sleep 1 &&  hyprlock"
+        "hyprlock"
         "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
