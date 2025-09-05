@@ -1,23 +1,48 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
+let
+  mcontrolcenter-custom = pkgs.mcontrolcenter.overrideAttrs (oldAttrs: rec {
+    version = "0.6.9";
+    src = pkgs.fetchFromGitHub {
+      owner = "dmitry-s93";
+      repo = "MControlCenter";
+      rev = "b7afe131a1388bab5eeec474405d818473b24be3";
+      sha256 = "sha256-U3MDuKas97ZAfFl4UlgueqBx1FelQLgeguJQ9djJbS8=";
+    };
+  });
+in
 {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    # ./../../cachix.nix
   ];
 
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
-    polkit_gnome
+    hyprpolkitagent
+    jq
+    jc
+    mcontrolcenter-custom
+    clash-meta
+    bzmenu
+    nixfmt-rfc-style
   ];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
-  services = {    
-     thermald.enable = true;
+  nix.package = pkgs.lix;
+
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
+
+  services = {
+    blueman.enable = true;
+    thermald.enable = true;
+    #  getty.autologinUser = "intellomaniac";
     # cpupower-gui.enable = true;
     #power-profiles-daemon.enable = true;
- 
+
     upower = {
       enable = true;
       percentageLow = 20;
@@ -27,16 +52,20 @@
     };
 
     tlp = {
-      enable=true;
-      settings={
-        CPU_ENERGY_PERF_POLICY_ON_BAT="power";
-        PLATFORM_PROFILE_ON_BAT="low-power";
-        CPU_BOOST_ON_BAT=0;
-        CPU_HWP_DYN_BOOST_ON_BAT=0;
-        NMI_WATCHDOG=0;
-        MEM_SLEEP_ON_BAT="deep";
-        CPU_DRIVER_OPMODE_ON_BAT="passive";
-        DEVICES_TO_DISABLE_ON_STARTUP="bluetooth";
+      enable = true;
+      settings = {
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+        RUNTIME_PM_ON_BAT = "auto";
+        NMI_WATCHDOG = 0;
+        MEM_SLEEP_ON_BAT = "deep";
+        CPU_DRIVER_OPMODE_ON_BAT = "passive";
+        DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth";
+        CPU_BOOST_ON_BAT = 0;
+        CPU_HWP_DYN_BOOST_ON_BAT = 0;
+        WIFI_PWR_ON_BAT = "on";
+        USB_EXCLUDE_PHONE = 1;
+
       };
     };
 
@@ -57,12 +86,13 @@
   };
 
   boot = {
-    kernelModules = ["acpi_call" "ec_sys"];
-    extraModulePackages = with config.boot.kernelPackages;
-      [
-        acpi_call
-      ];
+    kernelModules = [
+      "acpi_call"
+      # "msi-ec"
+      "ec_sys"
+    ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+    ];
   };
-
- 
 }

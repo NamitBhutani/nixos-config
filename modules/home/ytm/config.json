@@ -1,0 +1,73 @@
+{
+	"window-size": {
+		"width": 1920,
+		"height": 1080
+	},
+	"window-maximized": true,
+	"window-position": {
+		"x": 0,
+		"y": 0
+	},
+	"url": "https://music.youtube.com/watch?v=nGCyowonNdM&list=MLPT&index=0",
+	"options": {
+		"tray": true,
+		"appVisible": true,
+		"autoUpdates": true,
+		"alwaysOnTop": false,
+		"hideMenu": false,
+		"hideMenuWarned": false,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": true,
+		"removeUpgradeButton": false,
+		"restartOnConfigChanges": true,
+		"trayClickPlayPause": true,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"likeButtons": "",
+		"proxy": "",
+		"startingPage": "Uploaded Songs",
+		"overrideUserAgent": false,
+		"usePodcastParticipantAsArtist": false,
+		"themes": [
+			"/home/intellomaniac/.config/nixos-config/modules/home/ytm/ytm_mocha.css"
+		]
+	},
+	"plugins": {
+		"notifications": {
+			"enabled": true
+		},
+		"video-toggle": {
+			"mode": "custom"
+		},
+		"precise-volume": {
+			"globalShortcuts": {}
+		},
+		"discord": {
+			"enabled": true,
+			"autoReconnect": false,
+			"activityTimeoutEnabled": true,
+			"activityTimeoutTime": 600000,
+			"playOnYouTubeMusic": true,
+			"hideGitHubButton": false,
+			"hideDurationLeft": false,
+			"listenAlong": true
+		},
+		"exponential-volume": {
+			"enabled": true
+		},
+		"compact-sidebar": {
+			"enabled": true
+		},
+		"in-app-menu": {
+			"enabled": true
+		},
+		"unobtrusive-player": {
+			"enabled": true
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.9.0"
+		}
+	}
+}

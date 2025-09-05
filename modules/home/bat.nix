@@ -1,4 +1,4 @@
-{ inputs, ... }: 
+{ inputs, ... }:
 {
   programs.bat = {
     enable = true;

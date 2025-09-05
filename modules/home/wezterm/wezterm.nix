@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   # Import WezTerm from the flake input
   weztermPkg = inputs.wezterm.packages.${pkgs.system}.default;

@@ -3,15 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/f518f96a60aceda4cd487437b25eaa48d0f1b97d";
     hypr-contrib.url = "github:hyprwm/contrib";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -24,26 +21,58 @@
 
   };
 
-  outputs = { nixpkgs, self, catppuccin, home-manager, spicetify-nix, ... } @ inputs:
-  let
-    username = "intellomaniac";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    lib = nixpkgs.lib;
-  in
-  {
-    nixosConfigurations = { 
-      laptop = nixpkgs.lib.nixosSystem {
+  outputs =
+    {
+      nixpkgs,
+      self,
+      catppuccin,
+      home-manager,
+      spicetify-nix,
+      ...
+    }@inputs:
+    let
+      username = "intellomaniac";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
         inherit system;
-        modules = [
-          (import ./hosts/laptop)
-          
-        ];
-        specialArgs = { host = "laptop"; inherit self inputs username; };
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
+    in
+    {
+      nixosConfigurations = {
+        laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/laptop)
+
+          ];
+          specialArgs = {
+            host = "laptop";
+            inherit self inputs username;
+          };
+        };
+        battery = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/laptop)
+            (import ./hosts/battery)
+
+          ];
+          specialArgs = {
+            host = "battery";
+            inherit self inputs username;
+          };
+        };
       };
     };
+  nixConfig = {
+    extra-substituters = [
+      "https://wezterm.cachix.org"
+    ];
+    extra-trusted-substituters = [ "https://wezterm.cachix.org" ];
+    extra-trusted-public-keys = [
+      "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
+    ];
   };
 }

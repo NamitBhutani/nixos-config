@@ -1,9 +1,12 @@
-{ pkgs, username, ... }: 
+{ pkgs, username, ... }:
 {
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [
+      "modesetting"
+      "nvidia"
+    ];
   };
   services = {
     displayManager.autoLogin = {
@@ -12,11 +15,14 @@
     };
     libinput = {
       enable = true;
-      # mouse = {
-      #   accelProfile = "flat";
-      # };
     };
   };
   # To prevent getting stuck at shutdown
-  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=5s
+  '';
+
+  systemd.user.extraConfig = ''
+    DefaultTimeoutStopSec=5s
+  '';
 }

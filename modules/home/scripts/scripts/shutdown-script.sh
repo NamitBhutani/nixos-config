@@ -1,15 +1,19 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-respond="$(echo "---------------- Yes ----------------\n-------------- Restart --------------\n---------------- Nah ----------------" | wofi --show dmenu -k /dev/null)"
+response=$(printf "Yes\nRestart\nNah" | fuzzel --dmenu)
 
-if [ $respond = '---------------- Yes ----------------' ] 
-then
-    echo "shutdown"
-	shutdown now    
-elif [ $respond = '-------------- Restart --------------' ] 
-then
-    echo "restart"
-    reboot
-else
-    notify-send "cancel shutdown"
-fi
+case "$response" in
+    "Yes")
+        hyprctl dispatch exit &
+        sleep 1
+        shutdown now
+        ;;
+    "Restart")
+        hyprctl dispatch exit &
+        sleep 1
+        reboot
+        ;;
+    *)
+        notify-send "Cancelled shutdown"
+        ;;
+esac

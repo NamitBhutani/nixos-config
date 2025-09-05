@@ -1,24 +1,24 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
-      
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
         "nm-applet &"
+        "swaync-wrapped &"
         #"wl-clipboard-history -t"
         "wl-clip-persist --clipboard both"
         "wl-paste --watch cliphist store &"
         "hyprshade on vibrance-boosted"
         "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        "sleep 1 && swaylock"
+        "sleep 1 &&  swaylock"
         "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
-        "mako &"
+        "mcontrolcenter &"
         "refresh-rate &"
       ];
 
@@ -40,15 +40,15 @@
         border_size = 2;
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
-        border_part_of_window = false;
+        # border_part_of_window = false;
         no_border_on_floating = true;
       };
 
       gestures = {
         workspace_swipe = true;
-        
+
       };
-      
+
       misc = {
         disable_autoreload = true;
         disable_hyprland_logo = true;
@@ -57,6 +57,7 @@
         animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
+        vfr = true;
       };
       cursor = {
         no_hardware_cursors = true;
@@ -82,19 +83,12 @@
         # inactive_opacity = 0.90;
         # fullscreen_opacity = 1.0;
 
-        # blur = {
-        #   enabled = true;
-        #   size = 1;
-        #   passes = 1;
-        #   # size = 4;
-        #   # passes = 2;
-        #   brightness = 1;
-        #   contrast = 1.400;
-        #   ignore_opacity = true;
-        #   noise = 0;
-        #   new_optimizations = true;
-        #   xray = true;
-        # };
+        blur = {
+          enabled = false;
+        };
+        shadow = {
+          enabled = false;
+        };
 
         # drop_shadow = true;
 
@@ -116,29 +110,26 @@
         ];
 
         animation = [
-          # Windows
-          "windowsIn, 1, 3, easeOutCubic, popin 30%" # window open
-          "windowsOut, 1, 3, fluent_decel, popin 70%" # window close.
-          "windowsMove, 1, 2, easeinoutsine, slide" # everything in between, moving, dragging, resizing.
-
-          # Fade
-          "fadeIn, 1, 3, easeOutCubic" # fade in (open) -> layers and windows
-          "fadeOut, 1, 2, easeOutCubic" # fade out (close) -> layers and windows
-          "fadeSwitch, 0, 1, easeOutCirc" # fade on changing activewindow and its opacity
-          "fadeShadow, 1, 10, easeOutCirc" # fade on changing activewindow for shadows
-          "fadeDim, 1, 4, fluent_decel" # the easing of the dimming of inactive windows
-          "border, 1, 2.7, easeOutCirc" # for animating the border's color switch speed
-          "borderangle, 1, 30, fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
-          "workspaces, 1, 4, easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
+          "windowsIn, 1, 1, easeOutCubic, popin 30%"
+          "windowsOut, 1, 1, easeOutCubic, popin 70%"
+          "windowsMove, 1, 1, easeOutCubic, slide"
+          "fadeIn, 1, 1, easeOutCubic"
+          "fadeOut, 1, 1, easeOutCubic"
+          "fadeSwitch, 0"
+          "fadeShadow, 1, 1, easeOutCubic"
+          "fadeDim, 1, 1, easeOutCubic"
+          "border, 1, 1, easeOutCubic"
+          "borderangle, 0" # disabled for performance
+          "workspaces, 1, 1, easeOutCubic, fade"
         ];
       };
 
       bind = [
         # show keybinds list
-        "$mainMod, F1, exec, show-keybinds"
+        "$mainMod, F1, exec, -- show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, floorp --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, wezterm"
         "ALT, Return, exec, wezterm --title float_wezterm"
         "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
@@ -147,24 +138,24 @@
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
-        # "$mainMod, D, exec, pkill wofi || wofi --show drun"
+        "$mainMod, D, exec, fuzzel --launch-prefix=\"\""
         "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord'"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
+        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@151,0x0,1.0"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
         "$mainMod, E, exec, nautilus"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
-        "$mainMod, C ,exec, hyprpicker -a"
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
-        "$mainMod, W,exec, pkill wofi || wallpaper-picker"
+        "$mainMod, W,exec, pkill fuzzel || wallpaper-picker"
         "$mainMod SHIFT, W, exec, vm-start"
-        "$mainMod, S, exec, smile"
+        "$mainMod, S, exec, rofimoji"
 
         # screenshot
-        "$mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
-        ",Print, exec, grimblast --notify --cursor  copy area"
+        "$mainMod, Print, exec, grimblast --notify save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
+        ",Print, exec, grimblast --notify copy area"
 
         # switch focus
         "$mainMod, left, movefocus, l"
@@ -233,9 +224,8 @@
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
 
         #clipboard manager
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
 
-        "$mainMod, D, exec, ulauncher"
       ];
 
       # mouse binding
@@ -246,24 +236,24 @@
 
       # windowrule
       windowrule = [
-        "float,imv"
-        "center,imv"
-        "size 1200 725,imv"
-        "float,mpv"
-        "center,mpv"
-        "size 1200 725,mpv"
+        # "float,imv"
+        # "center,imv"
+        # "size 1200 725,imv"
+        # "float,mpv"
+        # "center,mpv"
+        # "size 1200 725,mpv"
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
-        "float,audacious"
-        "float,smile"
-        "workspace 8 silent, audacious"
-        "pin,wofi"
-        "float,wofi"
-        "noborder,wofi"
-        "tile, neovide"
-        "idleinhibit focus,mpv"
-        "float,udiskie"
+        # "float,audacious"
+        # "float,smile"
+        # "workspace 8 silent, audacious"
+        # "pin,wofi"
+        # "float,wofi"
+        # "noborder,wofi"
+        # "tile, neovide"
+        # "idleinhibit focus,mpv"
+        # "float,udiskie"
         "float,title:^(Transmission)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Firefox — Sharing Indicator)$"
@@ -299,15 +289,17 @@
         "float,class:Ulauncher"
         "noborder,class:Ulauncher"
         "workspace 5 silent, class:^(spotify)$"
+        "workspace 5 silent, class:^(com.github.th_ch.youtube_music)$"
         "workspace 4 silent, class:^(discord)$"
-
 
       ];
 
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
+      monitor = eDP-1, 1920x1080@240, 0x0, 1.0
+      monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1.333333
+
 
       xwayland {
         force_zero_scaling = true
