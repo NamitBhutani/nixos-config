@@ -8,6 +8,7 @@
       fd # find replacement
       file # Show file information
       fzf
+      wezterm
       # gtt                               # google translate TUI
       gtrash # rm replacement, put deleted files in system trash
       jdk17 # java

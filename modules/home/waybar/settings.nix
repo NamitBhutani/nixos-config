@@ -133,7 +133,7 @@
       interval = 10;
     };
     backlight = {
-      device = "intel_backlight";
+      device = "amdgpu_bl1";
       format = "{icon} {percent}%";
       format-icons = [
         "󰃞"

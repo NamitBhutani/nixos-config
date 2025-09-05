@@ -86,9 +86,9 @@
         blur = {
           enabled = false;
         };
-        shadow = {
-          enabled = false;
-        };
+        # shadow = {
+        #   enabled = false;
+        # };
 
         # drop_shadow = true;
 

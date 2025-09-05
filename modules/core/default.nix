@@ -21,6 +21,6 @@
   ++ [ (import ./user.nix) ]
   ++ [ (import ./wayland.nix) ]
   ++ [ (import ./virtualization.nix) ]
-  ++ [ (import ./nvidia.nix) ]
+  # ++ [ (import ./nvidia.nix) ]
   ++ [ (import ./zramswap.nix) ];
 }

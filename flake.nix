@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix/f518f96a60aceda4cd487437b25eaa48d0f1b97d";
     hypr-contrib.url = "github:hyprwm/contrib";
-    wezterm.url = "github:wez/wezterm?dir=nix";
+    # wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,13 +66,13 @@
         };
       };
     };
-  nixConfig = {
-    extra-substituters = [
-      "https://wezterm.cachix.org"
-    ];
-    extra-trusted-substituters = [ "https://wezterm.cachix.org" ];
-    extra-trusted-public-keys = [
-      "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
-    ];
-  };
+  # nixConfig = {
+  #   extra-substituters = [
+  #     "https://wezterm.cachix.org"
+  #   ];
+  #   extra-trusted-substituters = [ "https://wezterm.cachix.org" ];
+  #   extra-trusted-public-keys = [
+  #     "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
+  #   ];
+  # };
 }
