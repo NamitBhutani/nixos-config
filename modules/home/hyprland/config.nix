@@ -18,8 +18,8 @@
         "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
-        "mcontrolcenter &"
-        "refresh-rate &"
+        # "mcontrolcenter &"
+        # "refresh-rate &"
       ];
 
       input = {
@@ -245,6 +245,7 @@
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
+        "float,title:^(File Upload)$"
         # "float,audacious"
         # "float,smile"
         # "workspace 8 silent, audacious"
