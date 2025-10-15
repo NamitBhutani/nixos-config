@@ -50,7 +50,7 @@
       linux-wifi-hotspot
       youtube-music
       undervolt
-      #unityhub
+      unityhub
       hostapd
       iw
       #godot_4

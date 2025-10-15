@@ -9,6 +9,7 @@
         "dbus-update-activation-environment --systemd &"
         "nm-applet &"
         "swaync-wrapped &"
+        "systemctl --user start hyprpolkitagent"
         #"wl-clipboard-history -t"
         "wl-clip-persist --clipboard both"
         "wl-paste --watch cliphist store &"
