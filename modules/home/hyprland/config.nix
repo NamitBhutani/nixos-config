@@ -7,6 +7,7 @@
         "systemctl --user import-environment &"
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
+        "systemctl --user start hyprpolkitagent"
         "nm-applet &"
         "swaync-wrapped &"
         #"wl-clipboard-history -t"
