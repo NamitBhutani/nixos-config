@@ -45,11 +45,11 @@
         no_border_on_floating = true;
       };
 
-       gesture = [
-      "3, horizontal, workspace"
-      "3, down, mod: ALT, close"
-      "3, up, mod: SUPER, scale: 1.5, fullscreen"
-    ];
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, mod: ALT, close"
+        "3, up, mod: SUPER, scale: 1.5, fullscreen"
+      ];
 
       misc = {
         disable_autoreload = true;
