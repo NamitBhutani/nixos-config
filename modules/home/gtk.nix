@@ -5,7 +5,7 @@
     pkgs.nerd-fonts.jetbrains-mono
     #(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     pkgs.twemoji-color-font
-    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-color-emoji
   ];
   gtk = {
     enable = true;

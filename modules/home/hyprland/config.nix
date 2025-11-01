@@ -20,7 +20,7 @@
         "poweralertd &"
         "waybar &"
         # "mcontrolcenter &"
-        # "refresh-rate &"
+        "refresh-rate &"
       ];
 
       input = {
@@ -45,10 +45,11 @@
         no_border_on_floating = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-
-      };
+       gesture = [
+      "3, horizontal, workspace"
+      "3, down, mod: ALT, close"
+      "3, up, mod: SUPER, scale: 1.5, fullscreen"
+    ];
 
       misc = {
         disable_autoreload = true;
@@ -144,7 +145,7 @@
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
-        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@151,0x0,1.0"
+        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@120,0x0,1.0"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
         "$mainMod, E, exec, nautilus"
