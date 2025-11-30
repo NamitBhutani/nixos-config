@@ -22,7 +22,7 @@
   ++ [ (import ./starship.nix) ] # shell prompt
   ++ [ (import ./hyprlock.nix) ] # lock screen
   ++ [ (import ./swaync/swaync.nix) ] # notification center
-  ++ [ (import ./vscode.nix) ] # vscode
+  #++ [ (import ./vscode.nix) ] # vscode
   ++ [ (import ./waybar) ] # status bar
   ++ [ (import ./fuzzel.nix) ] # launcher
   ++ [ (import ./fish.nix) ] # shell
@@ -31,6 +31,7 @@
   ++ [ (import ./qt.nix) ] # qt theme
   ++ [ (import ./wezterm/wezterm.nix) ]
   ++ [ (import ./gammastep.nix) ] # blue light filter
-  ++ [ (import ./ytm/ytm.nix) ]; # youtube music
+  ++ [ (import ./ytm/ytm.nix) ] # youtube music
+  ++ [ (import ./zed.nix) ]; # zed editor
 
 }

@@ -3,11 +3,12 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
+    settings.user = {
+      name = "Namit Bhutani";
+      email = "namit.bhut@gmail.com";
+    };
 
-    userName = "Namit Bhutani";
-    userEmail = "namit.bhut@gmail.com";
-
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
       credential.helper = "store";
     };
