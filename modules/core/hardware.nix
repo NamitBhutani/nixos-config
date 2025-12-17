@@ -6,7 +6,7 @@
   # };
 
   hardware.graphics.enable = true;
-  # hardware.opengl.driSupport = true;
+  #  hardware.opengl.driSupport = true;
   hardware.graphics.enable32Bit = true;
   hardware.bluetooth = {
     enable = true;
@@ -18,8 +18,13 @@
     };
   };
   hardware.graphics.extraPackages = with pkgs; [
-    intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    libvdpau-va-gl
+    #intel-media-driver # LIBVA_DRIVER_NAME=iHD
+    #  intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+    libva
+    libva-utils
+    libdrm
+    libgbm
+    mesa
   ];
   hardware.enableRedistributableFirmware = true;
 }

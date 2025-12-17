@@ -6,30 +6,30 @@
     dbus.enable = true;
     fstrim.enable = true;
   };
-  services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
-    HandlePowerKey=ignore
-  '';
+
+  # services.logind.settings.Login = {
+  #   HandlePowerKey = "ignore";
+  # };
 
   services.sunshine = {
     enable = true;
     autoStart = false;
     # Enable nvenc support
-    package =
-      with pkgs;
-      (pkgs.sunshine.override {
-        cudaSupport = true;
-        cudaPackages = cudaPackages;
-      }).overrideAttrs
-        (old: {
-          nativeBuildInputs = old.nativeBuildInputs ++ [
-            cudaPackages.cuda_nvcc
-            (lib.getDev cudaPackages.cuda_cudart)
-          ];
-          cmakeFlags = old.cmakeFlags ++ [
-            "-DCMAKE_CUDA_COMPILER=${(lib.getExe cudaPackages.cuda_nvcc)}"
-          ];
-        });
+    # package =
+    #   with pkgs;
+    #   (pkgs.sunshine.override {
+    #     cudaSupport = true;
+    #     cudaPackages = cudaPackages;
+    #   }).overrideAttrs
+    #     (old: {
+    #       nativeBuildInputs = old.nativeBuildInputs ++ [
+    #         cudaPackages.cuda_nvcc
+    #         (lib.getDev cudaPackages.cuda_cudart)
+    #       ];
+    #       cmakeFlags = old.cmakeFlags ++ [
+    #         "-DCMAKE_CUDA_COMPILER=${(lib.getExe cudaPackages.cuda_nvcc)}"
+    #       ];
+    #     });
     openFirewall = true;
     capSysAdmin = true;
   };

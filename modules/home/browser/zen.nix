@@ -28,16 +28,16 @@
   );
 
   #deploy catppuccin files to all zen profiles
-  home.activation.copyToAllZenProfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    FILES_DIR="$HOME/.config/nixos-config/modules/home/browser/catppuccin"
-    PROFILES_DIR="$HOME/.zen"
-    for profile in "$PROFILES_DIR"/*; do
-      if [ -d "$profile" ]; then
-        CHROME_DIR="$profile/chrome"
-        mkdir -p "$CHROME_DIR"
-        cp "$FILES_DIR"/* "$CHROME_DIR/"
-      fi
-    done
-  '';
+  # home.activation.copyToAllZenProfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  #   FILES_DIR="$HOME/.config/nixos-config/modules/home/browser/catppuccin"
+  #   PROFILES_DIR="$HOME/.zen"
+  #   for profile in "$PROFILES_DIR"/*; do
+  #     if [ -d "$profile" ]; then
+  #       CHROME_DIR="$profile/chrome"
+  #       mkdir -p "$CHROME_DIR"
+  #       cp "$FILES_DIR"/* "$CHROME_DIR/"
+  #     fi
+  #   done
+  # '';
 
 }

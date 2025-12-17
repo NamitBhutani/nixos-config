@@ -9,7 +9,9 @@
         "dbus-update-activation-environment --systemd &"
         "systemctl --user start hyprpolkitagent"
         "nm-applet &"
+        "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
         "swaync-wrapped &"
+        "systemctl --user start hyprpolkitagent"
         #"wl-clipboard-history -t"
         "wl-clip-persist --clipboard both"
         "wl-paste --watch cliphist store &"
@@ -19,7 +21,7 @@
         "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
-        "mcontrolcenter &"
+        # "mcontrolcenter &"
         "refresh-rate &"
       ];
 
@@ -45,10 +47,11 @@
         no_border_on_floating = true;
       };
 
-      gestures = {
-        workspace_swipe = true;
-
-      };
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, mod: ALT, close"
+        "3, up, mod: SUPER, scale: 1.5, fullscreen"
+      ];
 
       misc = {
         disable_autoreload = true;
@@ -87,9 +90,9 @@
         blur = {
           enabled = false;
         };
-        shadow = {
-          enabled = false;
-        };
+        # shadow = {
+        #   enabled = false;
+        # };
 
         # drop_shadow = true;
 
@@ -144,10 +147,10 @@
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
-        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@151,0x0,1.0"
+        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@120,0x0,1.0"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
-        "$mainMod, E, exec, nautilus"
+        "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
         "$mainMod, W,exec, pkill fuzzel || wallpaper-picker"
@@ -246,6 +249,7 @@
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
+        "float,title:^(File Upload)$"
         # "float,audacious"
         # "float,smile"
         # "workspace 8 silent, audacious"

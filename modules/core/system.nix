@@ -34,6 +34,6 @@
   time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_US.UTF-8";
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = lib.mkForce true;
+  # nixpkgs.config.cudaSupport = lib.mkForce true;
   system.stateVersion = "23.11";
 }

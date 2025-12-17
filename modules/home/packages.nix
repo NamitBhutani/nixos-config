@@ -13,7 +13,7 @@
       gtrash # rm replacement, put deleted files in system trash
       jdk17 # java
       libreoffice
-      nautilus # file manager
+      #nautilus # file manager
       nitch # systhem fetch util
       nix-prefetch-github
       ripgrep # grep replacement
@@ -50,7 +50,7 @@
       linux-wifi-hotspot
       youtube-music
       undervolt
-      #unityhub
+      unityhub
       hostapd
       iw
       #godot_4
