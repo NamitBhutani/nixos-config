@@ -5,8 +5,8 @@
     xkb.layout = "us";
     videoDrivers = [
       "modesetting"
-      # "nvidia"
-      "amdgpu"
+      "nvidia"
+      #"amdgpu"
     ];
   };
   services = {

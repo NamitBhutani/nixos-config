@@ -29,7 +29,7 @@
       "kernel.perf_event_mlock_kb" = 131072; # 128 MB
     };
     kernelParams = [
-      "amdgpu.backlight=0"
+      # "amdgpu.backlight=0"
       "quiet"
     ];
   };

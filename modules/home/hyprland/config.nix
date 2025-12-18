@@ -21,7 +21,7 @@
         "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
-        # "mcontrolcenter &"
+        "mcontrolcenter &"
         "refresh-rate &"
       ];
 
@@ -47,11 +47,9 @@
         no_border_on_floating = true;
       };
 
-      gesture = [
-        "3, horizontal, workspace"
-        "3, down, mod: ALT, close"
-        "3, up, mod: SUPER, scale: 1.5, fullscreen"
-      ];
+      # gesture = [
+      #   "3, horizontal, workspace"
+      # ];
 
       misc = {
         disable_autoreload = true;

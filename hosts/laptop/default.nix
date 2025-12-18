@@ -34,9 +34,9 @@ in
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "kvantum";
     QT_STYLE_OVERRIDE = "kvantum";
-    LIBVA_DRIVER_NAME = "radeonsi";
-    AMD_VULKAN_ICD = "RADV";
-    GBM_BACKEND = "mesa";
+    LIBVA_DRIVER_NAME = "iHD";
+    #AMD_VULKAN_ICD = "RADV";
+    GBM_BACKEND = "nvidia-drm";
   };
 
   services = {
@@ -91,8 +91,8 @@ in
   boot = {
     kernelModules = [
       "acpi_call"
-      # "msi-ec"
-      "ec_sys"
+      "msi-ec"
+      #"ec_sys"
     ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
