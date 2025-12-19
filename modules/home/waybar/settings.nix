@@ -128,7 +128,7 @@
       tooltip-format = "{time}";
     };
     temperature = {
-      hwmon-path = "/sys/class/hwmon/hwmon5/temp1_input";
+      hwmon-path = "/sys/class/hwmon/hwmon6/temp1_input";
       format = " {temperatureC}°C";
       interval = 10;
     };
