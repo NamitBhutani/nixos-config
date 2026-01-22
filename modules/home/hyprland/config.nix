@@ -2,12 +2,12 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
+      "$mainMod" = "SUPER";
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
-        "systemctl --user start hyprpolkitagent"
         "nm-applet &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
         "swaync-wrapped &"
@@ -36,7 +36,6 @@
       };
 
       general = {
-        "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 2;
         gaps_out = 2;
@@ -44,12 +43,14 @@
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
         # border_part_of_window = false;
-        no_border_on_floating = true;
+        #no_border_on_floating = true;
       };
 
-      # gesture = [
-      #   "3, horizontal, workspace"
-      # ];
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, mod: ALT, close"
+        "3, up, mod: SUPER, scale: 1.5, fullscreen"
+      ];
 
       misc = {
         disable_autoreload = true;
@@ -131,7 +132,7 @@
         "$mainMod, F1, exec, -- show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, [workspace 3 silent] zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, wezterm"
         "ALT, Return, exec, wezterm --title float_wezterm"
         "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
@@ -236,35 +237,6 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      # windowrule
-      windowrule = [
-        # "float,imv"
-        # "center,imv"
-        # "size 1200 725,imv"
-        # "float,mpv"
-        # "center,mpv"
-        # "size 1200 725,mpv"
-        "float,title:^(float_kitty)$"
-        "center,title:^(float_kitty)$"
-        "size 950 600,title:^(float_kitty)$"
-        "float,title:^(File Upload)$"
-        # "float,audacious"
-        # "float,smile"
-        # "workspace 8 silent, audacious"
-        # "pin,wofi"
-        # "float,wofi"
-        # "noborder,wofi"
-        # "tile, neovide"
-        # "idleinhibit focus,mpv"
-        # "float,udiskie"
-        "float,title:^(Transmission)$"
-        "float,title:^(Volume Control)$"
-        "float,title:^(Firefox — Sharing Indicator)$"
-        "move 0 0,title:^(Firefox — Sharing Indicator)$"
-        "size 700 450,title:^(Volume Control)$"
-        "move 40 55%,title:^(Volume Control)$"
-      ];
-
       # windowrulev2
       windowrulev2 = [
         "float, title:^(Picture-in-Picture)$"
@@ -287,14 +259,21 @@
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
         "float,title:^(branchdialog)$"
+        "float, title:^(Rename )(.*)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
-        "float,class:Ulauncher"
-        "noborder,class:Ulauncher"
-        "workspace 5 silent, class:^(spotify)$"
+        "float, class:^(xdg-desktop-portal-gtk)$"
+        "workspace 5 silent, class:^(Spotify)$"
         "workspace 5 silent, class:^(com.github.th_ch.youtube_music)$"
         "workspace 4 silent, class:^(discord)$"
-
+        "workspace 3 silent, class:^(zen)$"
+        "workspace 1 silent, class:^(dev.zed.Zed)$"
+        "float,title:^(Transmission)$"
+        "float,title:^(Volume Control)$"
+        "float,title:^(Firefox — Sharing Indicator)$"
+        "move 0 0,title:^(Firefox — Sharing Indicator)$"
+        "size 700 450,title:^(Volume Control)$"
+        "move 40 55%,title:^(Volume Control)$"
       ];
 
     };

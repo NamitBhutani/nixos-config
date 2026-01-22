@@ -48,7 +48,7 @@
       xdg-utils
       xxd
       linux-wifi-hotspot
-      youtube-music
+      pear-desktop # youtube-music
       undervolt
       unityhub
       hostapd

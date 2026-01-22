@@ -26,7 +26,7 @@ in
     mcontrolcenter-custom
     clash-meta
     bzmenu
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   nix.package = pkgs.lix;
