@@ -6,7 +6,7 @@
   programs.nix-ld.enable = true;
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true;  # or zshIntegration
+    enableFishIntegration = true; # or zshIntegration
     nix-direnv.enable = true;
   };
   # programs.gnupg.agent = {

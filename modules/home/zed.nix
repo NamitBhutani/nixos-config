@@ -3,39 +3,37 @@
   programs.zed-editor = {
     enable = true;
 
-    # Essential extensions for your workflow
     extensions = [
-      "nix" # Nix language support
-      "toml" # Configuration files
-      "glsl" # Shader programming
-      "basher" # Shell scripting
-      "make" # Build systems
+      "nix"
+      "toml"
+      "glsl"
+      "basher"
+      "make"
     ];
 
-    # Add LSP servers to the FHS environment
     extraPackages = with pkgs; [
-      nixd # Nix LSP
-      clang-tools # C/C++ LSP (clangd)
-      shellcheck # Shell script linting
+      nixd
+      clang-tools
+      shellcheck
     ];
 
     userSettings = {
-      # Vim mode (recommended for your workflow)
       vim_mode = false;
-
-      # Performance: use direnv for per-project environments
       load_direnv = "shell_hook";
 
-      # Display settings
       ui_font_size = 16;
       buffer_font_size = 16;
       show_whitespaces = "trailing";
 
-      # Terminal configuration
       terminal = {
         dock = "bottom";
         blinking = "off";
         copy_on_select = false;
+
+        shell = {
+          program = "${pkgs.fish}/bin/fish";
+        };
+
         detect_venv = {
           on = {
             directories = [
@@ -50,22 +48,30 @@
         working_directory = "current_project_directory";
       };
 
-      # LSP configuration - use system binaries
       lsp = {
         clangd = {
           binary = {
             path_lookup = true;
           };
         };
-        nix = {
+        nixd = {
           binary = {
             path_lookup = true;
           };
         };
       };
 
+      languages = {
+        "Nix" = {
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
+        };
+      };
+
       hour_format = "hour24";
-      auto_update = false; # Managed by Nix
+      auto_update = false;
     };
   };
 }

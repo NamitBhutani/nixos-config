@@ -10,7 +10,7 @@
   ] # music player
   ++ [ (import ./bat.nix) ] # better cat command
   ++ [ (import ./btop.nix) ] # resouces monitor
-  ++ [ (import ./discord.nix) ] # discord with catppuccin theme
+  #++ [ (import ./discord.nix) ] # discord with catppuccin theme
   ++ [ (import ./browser/zen.nix) ]
   ++ [ (import ./git.nix) ] # version control
   ++ [ (import ./gtk.nix) ] # gtk theme
@@ -30,6 +30,7 @@
   ++ [ (import ./catppuccin.nix) ]
   ++ [ (import ./qt.nix) ] # qt theme
   ++ [ (import ./wezterm/wezterm.nix) ]
+  ++ [ (import ./tmux.nix) ]
   ++ [ (import ./gammastep.nix) ] # blue light filter
   ++ [ (import ./ytm/ytm.nix) ] # youtube music
   ++ [ (import ./zed.nix) ]; # zed editor

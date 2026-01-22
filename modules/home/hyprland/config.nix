@@ -132,7 +132,7 @@
         "$mainMod, F1, exec, -- show-keybinds"
 
         # keybindings
-        "$mainMod, T, exec, zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
+        "$mainMod, T, exec, [workspace 3 silent] zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, wezterm"
         "ALT, Return, exec, wezterm --title float_wezterm"
         "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
@@ -248,7 +248,6 @@
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
-        "float,title:^(File Upload)$"
         # "float,audacious"
         # "float,smile"
         # "workspace 8 silent, audacious"
@@ -288,13 +287,15 @@
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
         "float,title:^(branchdialog)$"
+        "float, title:^(Rename )(.*)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
-        "float,class:Ulauncher"
-        "noborder,class:Ulauncher"
-        "workspace 5 silent, class:^(spotify)$"
+        "float, class:^(xdg-desktop-portal-gtk)$"
+        "workspace 5 silent, class:^(Spotify)$"
         "workspace 5 silent, class:^(com.github.th_ch.youtube_music)$"
         "workspace 4 silent, class:^(discord)$"
+        "workspace 3 silent, class:^(zen)$"
+        "workspace 1 silent, class:^(dev.zed.Zed)$"
 
       ];
 
