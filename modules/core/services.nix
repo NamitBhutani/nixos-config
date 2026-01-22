@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   services = {
     gvfs.enable = true;
@@ -38,12 +38,29 @@
     cloudflare-warp.enable = true;
   };
 
-  systemd.user.services.warp-taskbar = {
-    overrideStrategy = "asDropin";
+  # Disable the default warp-taskbar service
+  systemd.user.services.warp-taskbar.enable = false;
+
+  # Create a new complete service from scratch
+  systemd.user.services.warp-taskbar-fixed = {
+    description = "Cloudflare Zero Trust Client Taskbar";
+
+    requires = [ "dbus.socket" ];
+    after = [
+      "dbus.socket"
+      "graphical-session.target"
+    ];
+    partOf = [ "graphical-session.target" ];
+
     serviceConfig = {
-      Restart = "on-failure";
-      RestartSec = "1s";
+      Type = "simple";
+      ExecStart = "${pkgs.cloudflare-warp}/bin/warp-taskbar";
+      Restart = "always";
+      LimitSTACK = "33554432";
+      BindReadOnlyPaths = "${pkgs.cloudflare-warp}:/usr";
     };
+
+    wantedBy = [ "graphical-session.target" ];
   };
 
   # systemd = {
