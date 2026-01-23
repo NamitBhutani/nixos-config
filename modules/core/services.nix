@@ -38,13 +38,13 @@
     cloudflare-warp.enable = true;
   };
 
-  systemd.user.services.warp-taskbar = {
-    overrideStrategy = "asDropin";
-    serviceConfig = {
-      Restart = "on-failure";
-      RestartSec = "1s";
-    };
-  };
+  # systemd.user.services.warp-taskbar = {
+  #   overrideStrategy = "asDropin";
+  #   serviceConfig = {
+  #     Restart = "on-failure";
+  #     RestartSec = "1s";
+  #   };
+  # };
 
   # systemd = {
   #   user.services.polkit-gnome-authentication-agent-1 = {

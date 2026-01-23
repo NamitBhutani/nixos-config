@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
+      "$mainMod" = "SUPER";
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
@@ -35,7 +36,6 @@
       };
 
       general = {
-        "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 2;
         gaps_out = 2;
@@ -43,7 +43,7 @@
         "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
         "col.inactive_border" = "0x00000000";
         # border_part_of_window = false;
-        no_border_on_floating = true;
+        #no_border_on_floating = true;
       };
 
       gesture = [
@@ -237,34 +237,6 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      # windowrule
-      windowrule = [
-        # "float,imv"
-        # "center,imv"
-        # "size 1200 725,imv"
-        # "float,mpv"
-        # "center,mpv"
-        # "size 1200 725,mpv"
-        "float,title:^(float_kitty)$"
-        "center,title:^(float_kitty)$"
-        "size 950 600,title:^(float_kitty)$"
-        # "float,audacious"
-        # "float,smile"
-        # "workspace 8 silent, audacious"
-        # "pin,wofi"
-        # "float,wofi"
-        # "noborder,wofi"
-        # "tile, neovide"
-        # "idleinhibit focus,mpv"
-        # "float,udiskie"
-        "float,title:^(Transmission)$"
-        "float,title:^(Volume Control)$"
-        "float,title:^(Firefox — Sharing Indicator)$"
-        "move 0 0,title:^(Firefox — Sharing Indicator)$"
-        "size 700 450,title:^(Volume Control)$"
-        "move 40 55%,title:^(Volume Control)$"
-      ];
-
       # windowrulev2
       windowrulev2 = [
         "float, title:^(Picture-in-Picture)$"
@@ -296,7 +268,12 @@
         "workspace 4 silent, class:^(discord)$"
         "workspace 3 silent, class:^(zen)$"
         "workspace 1 silent, class:^(dev.zed.Zed)$"
-
+        "float,title:^(Transmission)$"
+        "float,title:^(Volume Control)$"
+        "float,title:^(Firefox — Sharing Indicator)$"
+        "move 0 0,title:^(Firefox — Sharing Indicator)$"
+        "size 700 450,title:^(Volume Control)$"
+        "move 40 55%,title:^(Volume Control)$"
       ];
 
     };
