@@ -16,6 +16,7 @@
       #nautilus # file manager
       nitch # systhem fetch util
       nix-prefetch-github
+      antigravity-fhs
       ripgrep # grep replacement
       soundwireserver # pass audio to android phone
       yazi # terminal file manager

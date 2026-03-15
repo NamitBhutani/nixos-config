@@ -14,6 +14,7 @@
   services.sunshine = {
     enable = true;
     autoStart = false;
+    package = pkgs.sunshine.override { boost = pkgs.boost187; };
     # Enable nvenc support
     # package =
     #   with pkgs;

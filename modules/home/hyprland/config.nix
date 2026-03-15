@@ -237,43 +237,56 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
-      # windowrulev2
-      windowrulev2 = [
-        "float, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
-        "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-        "opacity 1.0 override 1.0 override, class:(Unity)"
-        "idleinhibit focus, class:^(mpv)$"
-        "idleinhibit fullscreen, class:^(firefox)$"
-        "float,class:^(pavucontrol)$"
-        "float,class:^(SoundWireServer)$"
-        "float,class:^(.sameboy-wrapped)$"
-        "float,class:^(file_progress)$"
-        "float,class:^(confirm)$"
-        "float,class:^(dialog)$"
-        "float,class:^(download)$"
-        "float,class:^(notification)$"
-        "float,class:^(error)$"
-        "float,class:^(confirmreset)$"
-        "float,title:^(Open File)$"
-        "float,title:^(branchdialog)$"
-        "float, title:^(Rename )(.*)$"
-        "float,title:^(Confirm to replace files)$"
-        "float,title:^(File Operation Progress)$"
-        "float, class:^(xdg-desktop-portal-gtk)$"
-        "workspace 5 silent, class:^(Spotify)$"
-        "workspace 5 silent, class:^(com.github.th_ch.youtube_music)$"
-        "workspace 4 silent, class:^(discord)$"
-        "workspace 3 silent, class:^(zen)$"
-        "workspace 1 silent, class:^(dev.zed.Zed)$"
-        "float,title:^(Transmission)$"
-        "float,title:^(Volume Control)$"
-        "float,title:^(Firefox — Sharing Indicator)$"
-        "move 0 0,title:^(Firefox — Sharing Indicator)$"
-        "size 700 450,title:^(Volume Control)$"
-        "move 40 55%,title:^(Volume Control)$"
+      # windowrule
+      windowrule = [
+        # Picture-in-Picture
+        "float on, match:title ^(Picture-in-Picture)$"
+        "opacity 1.0 override 1.0 override, match:title ^(Picture-in-Picture)$"
+        "pin on, match:title ^(Picture-in-Picture)$"
+
+        # Override opacity for media viewers
+        "opacity 1.0 override 1.0 override, match:title ^(.*imv.*)$"
+        "opacity 1.0 override 1.0 override, match:title ^(.*mpv.*)$"
+        "opacity 1.0 override 1.0 override, match:class Unity"
+
+        # Idle inhibit
+        "idle_inhibit focus, match:class ^(mpv)$"
+        "idle_inhibit fullscreen, match:class ^(firefox)$"
+
+        # Floating windows by class
+        "float on, match:class ^(pavucontrol)$"
+        "float on, match:class ^(SoundWireServer)$"
+        "float on, match:class ^(.sameboy-wrapped)$"
+        "float on, match:class ^(file_progress)$"
+        "float on, match:class ^(confirm)$"
+        "float on, match:class ^(dialog)$"
+        "float on, match:class ^(download)$"
+        "float on, match:class ^(notification)$"
+        "float on, match:class ^(error)$"
+        "float on, match:class ^(confirmreset)$"
+        "float on, match:class ^(xdg-desktop-portal-gtk)$"
+
+        # Floating windows by title
+        "float on, match:title ^(Open File)$"
+        "float on, match:title ^(branchdialog)$"
+        "float on, match:title ^(Rename )(.*)$"
+        "float on, match:title ^(Confirm to replace files)$"
+        "float on, match:title ^(File Operation Progress)$"
+        "float on, match:title ^(Transmission)$"
+        "float on, match:title ^(Volume Control)$"
+        "float on, match:title ^(Firefox — Sharing Indicator)$"
+
+        # Workspace assignments
+        "workspace 5 silent, match:class ^(Spotify)$"
+        "workspace 5 silent, match:class ^(com.github.th_ch.youtube_music)$"
+        "workspace 4 silent, match:class ^(discord)$"
+        "workspace 3 silent, match:class ^(zen)$"
+        "workspace 1 silent, match:class ^(dev.zed.Zed)$"
+
+        # Size & move
+        "size 700 450, match:title ^(Volume Control)$"
+        "move 40 55%, match:title ^(Volume Control)$"
+        "move 0 0, match:title ^(Firefox — Sharing Indicator)$"
       ];
 
     };
