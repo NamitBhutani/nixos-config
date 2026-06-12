@@ -60,7 +60,7 @@
         animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
-        vfr = true;
+        #vfr = true;
       };
       cursor = {
         no_hardware_cursors = true;
@@ -71,8 +71,8 @@
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
         use_active_for_splits = true;
-        pseudotile = "yes";
-        preserve_split = "yes";
+        #pseudotile = true;
+        preserve_split = true;
       };
 
       master = {
@@ -148,7 +148,7 @@
         "$mainMod SHIFT, Escape, exec, shutdown-script"
         "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@120,0x0,1.0"
         "$mainMod, P, pseudo,"
-        "$mainMod, J, togglesplit,"
+        "$mainMod, J, layoutmsg, togglesplit"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, G,exec, $HOME/.local/bin/toggle_layout"
@@ -292,8 +292,8 @@
     };
 
     extraConfig = "
-      monitor = eDP-1, 1920x1080@240, 0x0, 1.0
-      monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1.333333
+      monitor = eDP-1, 1920x1080@240, 1920x0, 1.333333
+      monitor = HDMI-A-1, 1920x1080@144, 0x0, 1
 
 
       xwayland {

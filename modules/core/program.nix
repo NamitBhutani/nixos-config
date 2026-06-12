@@ -3,6 +3,7 @@
   programs.dconf.enable = true;
   programs.kdeconnect.enable = true;
   programs.fish.enable = true;
+  programs.wireshark.enable = true;
   programs.nix-ld.enable = true;
   programs.direnv = {
     enable = true;
