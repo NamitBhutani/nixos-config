@@ -3,6 +3,7 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
+    signing.format = "openpgp";
     settings.user = {
       name = "Namit Bhutani";
       email = "namit.bhut@gmail.com";

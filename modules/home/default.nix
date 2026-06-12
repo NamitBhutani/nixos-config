@@ -10,7 +10,7 @@
   ] # music player
   ++ [ (import ./bat.nix) ] # better cat command
   ++ [ (import ./btop.nix) ] # resouces monitor
-  #++ [ (import ./discord.nix) ] # discord with catppuccin theme
+  ++ [ (import ./discord.nix) ] # discord with catppuccin theme
   ++ [ (import ./browser/zen.nix) ]
   ++ [ (import ./git.nix) ] # version control
   ++ [ (import ./gtk.nix) ] # gtk theme

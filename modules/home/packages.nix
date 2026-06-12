@@ -17,6 +17,7 @@
       nitch # systhem fetch util
       nix-prefetch-github
       antigravity-fhs
+      code-cursor-fhs
       ripgrep # grep replacement
       soundwireserver # pass audio to android phone
       yazi # terminal file manager
