@@ -27,6 +27,7 @@ in
     clash-meta
     bzmenu
     nixfmt
+    houdini
   ];
 
   nix.package = pkgs.lix;
@@ -92,7 +93,7 @@ in
     kernelModules = [
       "acpi_call"
       "msi-ec"
-      #"ec_sys"
+      "ec_sys"
     ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call

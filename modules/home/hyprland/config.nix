@@ -136,7 +136,6 @@
         "$mainMod, Return, exec, wezterm"
         "ALT, Return, exec, wezterm --title float_wezterm"
         "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
-        "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
@@ -146,7 +145,6 @@
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, shutdown-script"
-        "$mainMod, B, execr, hyprctl keyword monitor eDP-1,1920x1080@120,0x0,1.0"
         "$mainMod, P, pseudo,"
         "$mainMod, J, layoutmsg, togglesplit"
         "$mainMod, E, exec, thunar"
@@ -237,6 +235,12 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
+      monitor = [
+        "desc:Acer Technologies EK240Y P6, 1920x1080@144, 0x0, 1"
+        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1"
+        #", preferred, auto, 1"
+      ];
+
       # windowrule
       windowrule = [
         # Picture-in-Picture
@@ -292,10 +296,6 @@
     };
 
     extraConfig = "
-      monitor = eDP-1, 1920x1080@240, 1920x0, 1.333333
-      monitor = HDMI-A-1, 1920x1080@144, 0x0, 1
-
-
       xwayland {
         force_zero_scaling = true
       }
