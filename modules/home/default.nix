@@ -18,6 +18,7 @@
   ++ [ (import ./micro.nix) ] # nano replacement
   ++ [ (import ./nvim/nvim.nix) ] # neovim editor
   ++ [ (import ./packages.nix) ] # other packages
+  ++ [ (import ./dev.nix) ] # systems & graphics dev tooling
   ++ [ (import ./scripts/scripts.nix) ] # personal scripts
   ++ [ (import ./starship.nix) ] # shell prompt
   ++ [ (import ./hyprlock.nix) ] # lock screen

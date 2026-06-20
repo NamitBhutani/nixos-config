@@ -2,6 +2,7 @@
   self,
   pkgs,
   lib,
+  config,
   inputs,
   ...
 }:
@@ -33,7 +34,14 @@
   environment.systemPackages = with pkgs; [
     pulseaudio
     git
+    perf  # kernel-matched perf (replaces deprecated linuxPackages.perf)
   ];
+
+  # Required for perf, rr (time-travel debugger), and bpftrace
+  boot.kernel.sysctl = {
+    "kernel.perf_event_paranoid" = 1;  # Allow perf by non-root (0 = full access, 1 = no raw tracepoints)
+    "kernel.kptr_restrict" = 0;        # Expose kernel addresses for symbol resolution in perf/rr
+  };
 
   time.timeZone = lib.mkDefault "Asia/Kolkata";
   time.hardwareClockInLocalTime = true;
