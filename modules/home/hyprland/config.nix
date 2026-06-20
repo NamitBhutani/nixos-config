@@ -237,7 +237,7 @@
 
       monitor = [
         "desc:Acer Technologies EK240Y P6, 1920x1080@144, 0x0, 1"
-        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1"
+        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1.33"
         #", preferred, auto, 1"
       ];
 
