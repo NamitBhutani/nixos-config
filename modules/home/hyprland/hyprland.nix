@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # swww
     swaybg
-    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+    inputs.hypr-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
     hyprshade
     # grim
     slurp
@@ -17,6 +17,7 @@
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     xwayland = {
       enable = true;
       # hidpi = true;

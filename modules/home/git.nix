@@ -12,8 +12,22 @@
     settings = {
       init.defaultBranch = "main";
       credential.helper = "store";
+      merge.conflictstyle = "diff3";
+      diff.colorMoved = "default";
     };
   };
 
-  # home.packages = [ pkgs.gh pkgs.git-lfs ];
+  programs.delta = {
+    enable = true;
+    options = {
+      navigate = true;       # n/N to jump between diff sections
+      side-by-side = true;
+      line-numbers = true;
+      syntax-theme = "Dracula";
+    };
+  };
+
+  # gh CLI — manage PRs, issues, repos from the terminal
+  home.packages = [ pkgs.gh ];
 }
+

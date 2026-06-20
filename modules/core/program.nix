@@ -9,9 +9,8 @@
     enableFishIntegration = true; # or zshIntegration
     nix-direnv.enable = true;
   };
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  #   # pinentryFlavor = "";
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 }
