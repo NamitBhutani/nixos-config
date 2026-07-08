@@ -63,6 +63,19 @@
     wantedBy = [ "graphical-session.target" ];
   };
 
+  systemd.services.sesinetd = {
+    description = "Houdini License Server";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "forking";
+      # This points to the system-wide executable path
+      ExecStart = "${pkgs.houdini}/houdini/sbin/sesinetd";
+      Restart = "on-failure";
+      User = "root";
+    };
+  };
+
   # systemd = {
   #   user.services.polkit-gnome-authentication-agent-1 = {
   #     description = "polkit-gnome-authentication-agent-1";

@@ -10,7 +10,8 @@
         "dbus-update-activation-environment --systemd &"
         "nm-applet &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-        "swaync-wrapped &"
+        # swaync now starts via its systemd user service (services.swaync), ordered
+        # after graphical-session.target — no exec-once needed.
         "systemctl --user start hyprpolkitagent"
         #"wl-clipboard-history -t"
         "wl-clip-persist --clipboard both"
@@ -237,8 +238,8 @@
 
       monitor = [
         "desc:Acer Technologies EK240Y P6, 1920x1080@144, 0x0, 1"
-        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1.33"
-        #", preferred, auto, 1"
+        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1.25"
+        ", preferred, auto, 1"
       ];
 
       # windowrule

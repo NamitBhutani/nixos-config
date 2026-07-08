@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.neovim = {
@@ -6,10 +6,8 @@
     vimAlias = true;
     withRuby = true;
     withPython3 = true;
+    initLua = builtins.readFile ./nvim-config/init.lua;
   };
 
-  home.file.".config/nvim" = {
-    source = ./nvim-config;
-    recursive = true;
-  };
+  xdg.configFile."nvim/lua".source = ./nvim-config/lua;
 }

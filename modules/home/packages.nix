@@ -10,6 +10,7 @@
       fzf
       wezterm
       houdini
+      claude-code
       # gtt                               # google translate TUI
       gtrash # rm replacement, put deleted files in system trash
       jdk17 # java
@@ -23,6 +24,7 @@
       yazi # terminal file manager
       wl-clipboard # wayland clipboard manager
       cliphist # clipboard history
+      antigravity
       # C / C++
       gcc
       gnumake

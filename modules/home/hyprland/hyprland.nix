@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # swww
     swaybg
-    inputs.hypr-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
+    grimblast
     hyprshade
     # grim
     slurp

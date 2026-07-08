@@ -1,17 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home = {
-    packages = [
-      (pkgs.writeShellScriptBin "swaync-wrapped" ''
-        XDG_CONFIG_HOME="$HOME/.dummy" ${pkgs.swaynotificationcenter}/bin/swaync \
-        -c "$HOME/.config/swaync/config.json" \
-        -s "$HOME/.config/swaync/style.css"
-      '')
-    ];
+  catppuccin.swaync.enable = false;
 
-    file = {
-      ".config/swaync/style.css".source = ./style.css;
-      ".config/swaync/config.json".source = ./config.json;
-    };
+  services.swaync = {
+    enable = true;
+    style = ./style.css;
+    settings = builtins.fromJSON (builtins.readFile ./config.json);
   };
 }
