@@ -19,7 +19,7 @@
   programs.delta = {
     enable = true;
     options = {
-      navigate = true;       # n/N to jump between diff sections
+      navigate = true; # n/N to jump between diff sections
       side-by-side = true;
       line-numbers = true;
       syntax-theme = "Dracula";

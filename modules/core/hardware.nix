@@ -10,7 +10,7 @@
   hardware.graphics.enable32Bit = true;
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
+    powerOnBoot = false; # TLP disables BT at boot anyway; toggle via bzmenu/blueman
     settings = {
       General = {
         Experimental = true; # Show battery charge of Bluetooth devices

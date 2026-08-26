@@ -8,20 +8,20 @@
 }:
 {
   imports = [
-    (import ./bootloader.nix)
-  ]
-  ++ [ (import ./hardware.nix) ]
-  ++ [ (import ./xserver.nix) ]
-  ++ [ (import ./network.nix) ]
-  ++ [ (import ./pipewire.nix) ]
-  ++ [ (import ./program.nix) ]
-  ++ [ (import ./security.nix) ]
-  ++ [ (import ./services.nix) ]
-  ++ [ (import ./system.nix) ]
-  ++ [ (import ./user.nix) ]
-  ++ [ (import ./wayland.nix) ]
-  ++ [ (import ./virtualization.nix) ]
-  ++ [ (import ./thunar.nix) ]
-  ++ [ (import ./nvidia.nix) ]
-  ++ [ (import ./zramswap.nix) ];
+    ./bootloader.nix
+    ./hardware.nix
+    ./xserver.nix
+    ./network.nix
+    ./pipewire.nix
+    ./program.nix
+    ./security.nix
+    ./services.nix
+    ./system.nix
+    ./user.nix
+    ./wayland.nix
+    ./virtualization.nix
+    ./thunar.nix
+    ./nvidia.nix
+    ./zramswap.nix
+  ];
 }

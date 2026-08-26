@@ -8,9 +8,10 @@
       fd # find replacement
       file # Show file information
       fzf
-      wezterm
       houdini
       claude-code
+      antigravity-cli
+      slack
       # gtt                               # google translate TUI
       gtrash # rm replacement, put deleted files in system trash
       jdk17 # java
@@ -18,13 +19,12 @@
       #nautilus # file manager
       nitch # systhem fetch util
       nix-prefetch-github
-      wireshark
       ripgrep # grep replacement
       soundwireserver # pass audio to android phone
       yazi # terminal file manager
       wl-clipboard # wayland clipboard manager
       cliphist # clipboard history
-      antigravity
+      codex
       # C / C++
       gcc
       gnumake
@@ -53,7 +53,6 @@
       xxd
       linux-wifi-hotspot
       pear-desktop # youtube-music
-      undervolt
       unityhub
       hostapd
       iw

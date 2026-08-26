@@ -25,7 +25,6 @@
       # Enable mouse support
       set -g mouse on
 
-      # Better colors for WezTerm
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
 

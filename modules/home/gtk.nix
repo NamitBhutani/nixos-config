@@ -16,10 +16,7 @@
     };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "lavender";
-      };
+      package = pkgs.catppuccin-papirus-folders;
     };
 
     cursorTheme = {
@@ -30,6 +27,7 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     name = "Nordzy-cursors";
     package = pkgs.nordzy-cursor-theme;
     size = 22;

@@ -2,8 +2,8 @@
   services.gammastep = {
     enable = true;
     provider = "manual";
-    latitude = 17.4;
-    longitude = 78.5;
+    latitude = 43.65; # Toronto
+    longitude = -79.38;
 
     dawnTime = "06:00";
     duskTime = "20:00";

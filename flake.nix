@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix/f518f96a60aceda4cd487437b25eaa48d0f1b97d";
-    # wezterm.url = "github:wez/wezterm?dir=nix";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,36 +41,12 @@
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [
-            (import ./hosts/laptop)
-
-          ];
+          modules = [ ./hosts/laptop ];
           specialArgs = {
             host = "laptop";
             inherit self inputs username;
           };
         };
-        battery = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/laptop)
-            (import ./hosts/battery)
-
-          ];
-          specialArgs = {
-            host = "battery";
-            inherit self inputs username;
-          };
-        };
       };
     };
-  # nixConfig = {
-  #   extra-substituters = [
-  #     "https://wezterm.cachix.org"
-  #   ];
-  #   extra-trusted-substituters = [ "https://wezterm.cachix.org" ];
-  #   extra-trusted-public-keys = [
-  #     "wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="
-  #   ];
-  # };
 }

@@ -5,7 +5,7 @@
     settings = {
       main = {
         width = 35;
-        terminal = "wezterm -e";
+        terminal = "kitty";
         font = "JetBrainsMono Nerd Font Mono:size=14";
         dpi-aware = "no";
         anchor = "center";

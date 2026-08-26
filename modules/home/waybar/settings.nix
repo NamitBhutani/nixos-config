@@ -34,10 +34,19 @@
           today = "<span color='#b4befe'><b><u>{}</u></b></span>";
         };
       };
-      format = " {:%H:%M}";
+      format = " {:%H:%M %Z}";
       tooltip = "true";
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       format-alt = " {:%d/%m}";
+      # scroll on the clock to cycle: local ("") -> India; add more tz names to extend
+      timezones = [
+        ""
+        "Asia/Kolkata"
+      ];
+      actions = {
+        on-scroll-up = "tz_up";
+        on-scroll-down = "tz_down";
+      };
     };
     "hyprland/workspaces" = {
       active-only = false;

@@ -6,34 +6,35 @@
 }:
 {
   imports = [
-    (import ./audacious/audacious.nix)
-  ] # music player
-  ++ [ (import ./bat.nix) ] # better cat command
-  ++ [ (import ./btop.nix) ] # resouces monitor
-  ++ [ (import ./discord.nix) ] # discord with catppuccin theme
-  ++ [ (import ./browser/zen.nix) ]
-  ++ [ (import ./git.nix) ] # version control
-  ++ [ (import ./gtk.nix) ] # gtk theme
-  ++ [ (import ./hyprland) ] # window manager
-  ++ [ (import ./micro.nix) ] # nano replacement
-  ++ [ (import ./nvim/nvim.nix) ] # neovim editor
-  ++ [ (import ./packages.nix) ] # other packages
-  ++ [ (import ./dev.nix) ] # systems & graphics dev tooling
-  ++ [ (import ./scripts/scripts.nix) ] # personal scripts
-  ++ [ (import ./starship.nix) ] # shell prompt
-  ++ [ (import ./hyprlock.nix) ] # lock screen
-  ++ [ (import ./swaync/swaync.nix) ] # notification center
-  #++ [ (import ./vscode.nix) ] # vscode
-  ++ [ (import ./waybar) ] # status bar
-  ++ [ (import ./fuzzel.nix) ] # launcher
-  ++ [ (import ./fish.nix) ] # shell
-  ++ [ (import ./spicetify.nix) ] # spicetify
-  ++ [ (import ./catppuccin.nix) ]
-  ++ [ (import ./qt.nix) ] # qt theme
-  ++ [ (import ./wezterm/wezterm.nix) ]
-  ++ [ (import ./tmux.nix) ]
-  ++ [ (import ./gammastep.nix) ] # blue light filter
-  ++ [ (import ./ytm/ytm.nix) ] # youtube music
-  ++ [ (import ./zed.nix) ]; # zed editor
+    ./audacious/audacious.nix # music player
+    ./bat.nix # better cat command
+    ./btop.nix # resouces monitor
+    ./discord.nix # discord with catppuccin theme
+    ./browser/zen.nix
+    ./git.nix # version control
+    ./gtk.nix # gtk theme
+    ./hyprland # window manager
+    ./micro.nix # nano replacement
+    ./nvim/nvim.nix # neovim editor
+    ./packages.nix # other packages
+    ./dev.nix # systems & graphics dev tooling
+    ./scripts/scripts.nix # personal scripts
+    ./starship.nix # shell prompt
+    ./hyprlock.nix # lock screen
+    ./hypridle.nix # idle daemon: screen off + suspend on battery
+    ./swaync/swaync.nix # notification center
+    # ./vscode.nix # vscode
+    ./waybar # status bar
+    ./fuzzel.nix # launcher
+    ./fish.nix # shell
+    ./spicetify.nix # spicetify
+    ./catppuccin.nix
+    ./qt.nix # qt theme
+    ./kitty.nix # terminal emulator
+    ./tmux.nix
+    ./gammastep.nix # blue light filter
+    ./ytm/ytm.nix # youtube music
+    ./zed.nix # zed editor
+  ];
 
 }

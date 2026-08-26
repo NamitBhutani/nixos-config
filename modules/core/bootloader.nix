@@ -31,6 +31,7 @@
     kernelParams = [
       # "amdgpu.backlight=0"
       "quiet"
+      "workqueue.power_efficient=y" # unbound workqueues, lets idle cores stay asleep
     ];
   };
 }

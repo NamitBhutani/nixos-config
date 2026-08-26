@@ -2,8 +2,6 @@
 {
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar;
   };
-  programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
-    mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
-  });
 }

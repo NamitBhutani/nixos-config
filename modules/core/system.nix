@@ -34,17 +34,21 @@
   environment.systemPackages = with pkgs; [
     pulseaudio
     git
-    perf  # kernel-matched perf (replaces deprecated linuxPackages.perf)
+    perf # kernel-matched perf (replaces deprecated linuxPackages.perf)
   ];
 
   # Required for perf, rr (time-travel debugger), and bpftrace
   boot.kernel.sysctl = {
-    "kernel.perf_event_paranoid" = 1;  # Allow perf by non-root (0 = full access, 1 = no raw tracepoints)
-    "kernel.kptr_restrict" = 0;        # Expose kernel addresses for symbol resolution in perf/rr
+    "kernel.perf_event_paranoid" = 1; # Allow perf by non-root (0 = full access, 1 = no raw tracepoints)
+    "kernel.kptr_restrict" = 0; # Expose kernel addresses for symbol resolution in perf/rr
   };
 
-  time.timeZone = lib.mkDefault "Asia/Kolkata";
-  time.hardwareClockInLocalTime = true;
+  # Fallback only: automatic-timezoned (hosts/laptop) overrides this to null and
+  # sets the zone from geoclue location at runtime.
+  time.timeZone = lib.mkDefault "America/Toronto";
+  # Keep the RTC in UTC. Windows is configured to use UTC too, avoiding the
+  # +05:30 jump before network time synchronisation is available.
+  time.hardwareClockInLocalTime = false;
   i18n.defaultLocale = "en_US.UTF-8";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = lib.mkForce true;

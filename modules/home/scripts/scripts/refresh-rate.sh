@@ -7,9 +7,9 @@ while true; do
 
     if [[ "$current_status" != "$previous_status" ]]; then
         if [[ "$current_status" == "yes" ]]; then
-            hyprctl keyword monitor eDP-1,1920x1080@240,1920x0,1.25  # Change refresh rate to 240 Hz when plugged in
+            hyprctl keyword monitor eDP-1,1920x1080@240,1920x0,1.00  # Change refresh rate to 240 Hz when plugged in
         else
-            hyprctl keyword monitor eDP-1,1920x1080@60,1920x0,1.25  # Change refresh rate to 60 Hz when unplugged
+            hyprctl keyword monitor eDP-1,1920x1080@60,1920x0,1.00  # Change refresh rate to 60 Hz when unplugged
         fi
         previous_status="$current_status"
     fi

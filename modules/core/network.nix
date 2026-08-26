@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   networking = {
-    hostName = "nixos";
+    hostName = "laptop";
     networkmanager.enable = true;
     nameservers = [ "1.1.1.1" ];
     firewall = {
@@ -18,7 +18,7 @@
     enable = true;
     tunMode = true;
     webui = pkgs.metacubexd;
-    configFile = /home/intellomaniac/config.yaml;
+    configFile = "/home/intellomaniac/config.yaml";
   };
   systemd.services.mihomo = {
     wantedBy = lib.mkForce [ ];

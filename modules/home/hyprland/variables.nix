@@ -13,6 +13,7 @@
     XDG_SESSION_TYPE = "wayland";
     GTK_THEME = "Catppuccin-Mocha-Compact-Lavender-Dark";
     WLR_NO_HARDWARE_CURSORS = "1";
-    AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+    # iGPU first, dGPU second; by-path names because cardN numbering shifts with probe order
+    AQ_DRM_DEVICES = "/dev/dri/by-path/pci-0000:00:02.0-card:/dev/dri/by-path/pci-0000:01:00.0-card";
   };
 }

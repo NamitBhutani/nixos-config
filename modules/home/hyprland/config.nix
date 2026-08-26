@@ -134,9 +134,9 @@
 
         # keybindings
         "$mainMod, T, exec, [workspace 3 silent] zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
-        "$mainMod, Return, exec, wezterm"
-        "ALT, Return, exec, wezterm --title float_wezterm"
-        "$mainMod SHIFT, Return, exec, wezterm --start-as=fullscreen -o 'font_size=16'"
+        "$mainMod, Return, exec, kitty"
+        "ALT, Return, exec, kitty --title float_kitty"
+        "$mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
@@ -237,8 +237,8 @@
       ];
 
       monitor = [
-        "desc:Acer Technologies EK240Y P6, 1920x1080@144, 0x0, 1"
-        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1.25"
+        "desc: Dell Inc. DELL 2405FPW T613358114HS, 1920x1200@59.95, 0x0, 1.00"
+        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1.00"
         ", preferred, auto, 1"
       ];
 
