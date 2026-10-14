@@ -26,6 +26,8 @@
     };
   };
 
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
   home.pointerCursor = {
     enable = true;
     name = "Nordzy-cursors";

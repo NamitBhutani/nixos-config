@@ -4,7 +4,6 @@
     # swww
     swaybg
     grimblast
-    hyprshade
     # grim
     slurp
     wl-clip-persist
@@ -31,6 +30,9 @@
     #   ];
     # };
     #enableNvidiaPatches = false;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      variables = [ "--all" ];
+    };
   };
 }

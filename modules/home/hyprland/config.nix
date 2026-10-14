@@ -3,23 +3,12 @@
   wayland.windowManager.hyprland = {
     settings = {
       "$mainMod" = "SUPER";
-      # autostart
       exec-once = [
-        "systemctl --user import-environment &"
-        "hash dbus-update-activation-environment 2>/dev/null &"
-        "dbus-update-activation-environment --systemd &"
-        "nm-applet &"
-        "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-        # swaync now starts via its systemd user service (services.swaync), ordered
-        # after graphical-session.target — no exec-once needed.
-        "systemctl --user start hyprpolkitagent"
+        "hyprlock --grace 0 --immediate-render --no-fade-in"
         #"wl-clipboard-history -t"
         "wl-clip-persist --clipboard both"
         "wl-paste --watch cliphist store &"
-        "hyprshade on vibrance-boosted"
         "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        "hyprlock"
-        "hyprctl setcursor Nordzy-cursors 22 &"
         "poweralertd &"
         "waybar &"
         "mcontrolcenter &"
@@ -90,6 +79,7 @@
         blur = {
           enabled = false;
         };
+        screen_shader = "${./vibrance-boosted.glsl}";
         # shadow = {
         #   enabled = false;
         # };
@@ -123,16 +113,14 @@
           "fadeShadow, 1, 1, easeOutCubic"
           "fadeDim, 1, 1, easeOutCubic"
           "border, 1, 1, easeOutCubic"
-          "borderangle, 0" # disabled for performance
+          "borderangle, 0"
           "workspaces, 1, 1, easeOutCubic, fade"
         ];
       };
 
       bind = [
-        # show keybinds list
         "$mainMod, F1, exec, -- show-keybinds"
 
-        # keybindings
         "$mainMod, T, exec, [workspace 3 silent] zen --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod, Return, exec, kitty"
         "ALT, Return, exec, kitty --title float_kitty"
@@ -155,17 +143,14 @@
         "$mainMod SHIFT, W, exec, vm-start"
         "$mainMod, S, exec, rofimoji"
 
-        # screenshot
         "$mainMod, Print, exec, grimblast --notify save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
         ",Print, exec, grimblast --notify copy area"
 
-        # switch focus
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
-        # switch workspace
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -177,12 +162,10 @@
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
 
-        # move workspace to another monitor
         "$mainMod TAB, l, movecurrentworkspacetomonitor, l"
         "$mainMod TAB, r, movecurrentworkspacetomonitor, r"
 
-        # same as above, but switch to the workspace
-        "$mainMod SHIFT, 1, movetoworkspacesilent, 1" # movetoworkspacesilent
+        "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
         "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
         "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
         "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
@@ -194,7 +177,6 @@
         "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
         "$mainMod CTRL, c, movetoworkspace, empty"
 
-        # window control
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"
         "$mainMod SHIFT, up, movewindow, u"
@@ -208,7 +190,6 @@
         "$mainMod ALT, up, moveactive, 0 -80"
         "$mainMod ALT, down, moveactive, 0 80"
 
-        # media and volume controls
         ",XF86AudioRaiseVolume,exec, pamixer -i 2"
         ",XF86AudioLowerVolume,exec, pamixer -d 2"
         ",XF86AudioMute,exec, pamixer -t"
@@ -219,18 +200,15 @@
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
 
-        # laptop brigthness
         ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
 
-        #clipboard manager
         "$mainMod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
 
       ];
 
-      # mouse binding
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
@@ -238,27 +216,27 @@
 
       monitor = [
         "desc: Dell Inc. DELL 2405FPW T613358114HS, 1920x1200@59.95, 0x0, 1.00"
-        "desc:Sharp Corporation LQ173M1JW05, 1920x1080@240, 1920x0, 1.00"
         ", preferred, auto, 1"
       ];
+      source = [ "~/.cache/hypr/panel-rate.conf" ];
 
-      # windowrule
+      env = [
+        "HYPRCURSOR_THEME,Nordzy-hyprcursors"
+        "HYPRCURSOR_SIZE,22"
+      ];
+
       windowrule = [
-        # Picture-in-Picture
         "float on, match:title ^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, match:title ^(Picture-in-Picture)$"
         "pin on, match:title ^(Picture-in-Picture)$"
 
-        # Override opacity for media viewers
         "opacity 1.0 override 1.0 override, match:title ^(.*imv.*)$"
         "opacity 1.0 override 1.0 override, match:title ^(.*mpv.*)$"
         "opacity 1.0 override 1.0 override, match:class Unity"
 
-        # Idle inhibit
         "idle_inhibit focus, match:class ^(mpv)$"
         "idle_inhibit fullscreen, match:class ^(firefox)$"
 
-        # Floating windows by class
         "float on, match:class ^(pavucontrol)$"
         "float on, match:class ^(SoundWireServer)$"
         "float on, match:class ^(.sameboy-wrapped)$"
@@ -271,7 +249,6 @@
         "float on, match:class ^(confirmreset)$"
         "float on, match:class ^(xdg-desktop-portal-gtk)$"
 
-        # Floating windows by title
         "float on, match:title ^(Open File)$"
         "float on, match:title ^(branchdialog)$"
         "float on, match:title ^(Rename )(.*)$"
@@ -281,14 +258,13 @@
         "float on, match:title ^(Volume Control)$"
         "float on, match:title ^(Firefox — Sharing Indicator)$"
 
-        # Workspace assignments
         "workspace 5 silent, match:class ^(Spotify)$"
         "workspace 5 silent, match:class ^(com.github.th_ch.youtube_music)$"
         "workspace 4 silent, match:class ^(discord)$"
         "workspace 3 silent, match:class ^(zen)$"
         "workspace 1 silent, match:class ^(dev.zed.Zed)$"
+        "workspace 2 silent, match:class ^(kitty)$"
 
-        # Size & move
         "size 700 450, match:title ^(Volume Control)$"
         "move 40 55%, match:title ^(Volume Control)$"
         "move 0 0, match:title ^(Firefox — Sharing Indicator)$"
