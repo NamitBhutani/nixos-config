@@ -6,35 +6,37 @@
 }:
 {
   imports = [
-    ./audacious/audacious.nix # music player
-    ./bat.nix # better cat command
-    ./btop.nix # resouces monitor
-    ./discord.nix # discord with catppuccin theme
+    ./audacious/audacious.nix
+    ./bat.nix
+    ./btop.nix
+    ./discord.nix
     ./browser/zen.nix
-    ./git.nix # version control
-    ./gtk.nix # gtk theme
-    ./hyprland # window manager
-    ./micro.nix # nano replacement
-    ./nvim/nvim.nix # neovim editor
-    ./packages.nix # other packages
-    ./dev.nix # systems & graphics dev tooling
-    ./scripts/scripts.nix # personal scripts
-    ./starship.nix # shell prompt
-    ./hyprlock.nix # lock screen
-    ./hypridle.nix # idle daemon: screen off + suspend on battery
-    ./swaync/swaync.nix # notification center
+    ./git.nix
+    ./gtk.nix
+    ./hyprland
+    ./micro.nix
+    ./nvim/nvim.nix
+    ./packages.nix
+    ./dev.nix
+    ./scripts/scripts.nix
+    ./starship.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+    ./swaync/swaync.nix
     # ./vscode.nix # vscode
-    ./waybar # status bar
-    ./fuzzel.nix # launcher
-    ./fish.nix # shell
-    ./spicetify.nix # spicetify
+    ./waybar
+    ./fuzzel.nix
+    ./fish.nix
+    ./spicetify.nix
     ./catppuccin.nix
-    ./qt.nix # qt theme
-    ./kitty.nix # terminal emulator
+    ./qt.nix
+    ./kitty.nix
     ./tmux.nix
-    ./gammastep.nix # blue light filter
-    ./ytm/ytm.nix # youtube music
-    ./zed.nix # zed editor
+    ./wlsunset.nix
+    ./ytm/ytm.nix
+    ./zed.nix
+    ./opencode.nix
+    ./keyring.nix
   ];
 
 }

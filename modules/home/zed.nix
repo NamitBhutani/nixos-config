@@ -1,5 +1,7 @@
 { pkgs, lib, ... }:
 {
+  home.packages = [ pkgs.opencode ];
+
   programs.zed-editor = {
     enable = true;
 
@@ -69,6 +71,27 @@
           ];
         };
       };
+
+      agent_servers = {
+        "Claude Code" = {
+          type = "custom";
+          command = lib.getExe pkgs.claude-agent-acp;
+          args = [ ];
+          env = { };
+        };
+        OpenCode = {
+          type = "custom";
+          command = lib.getExe pkgs.opencode;
+          args = [ "acp" ];
+          env = { };
+        };
+      };
+
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
+      agent.dock = "right";
 
       hour_format = "hour24";
       auto_update = false;
