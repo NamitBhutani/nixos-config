@@ -20,6 +20,7 @@
       "tray"
       "cpu"
       "memory"
+      "custom/gpu"
       "disk"
       "backlight"
       "pulseaudio"
@@ -38,7 +39,6 @@
       tooltip = "true";
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       format-alt = " {:%d/%m}";
-      # scroll on the clock to cycle: local ("") -> India; add more tz names to extend
       timezones = [
         ""
         "Asia/Kolkata"
@@ -54,8 +54,8 @@
       format = "{icon}";
       on-click = "activate";
       format-icons = {
-        "1" = "";
-        "2" = "󰘙";
+        "1" = "󰘙";
+        "2" = "";
         "3" = "󰈹";
         "4" = "󰙯";
         "5" = "";
@@ -83,13 +83,20 @@
 
     memory = {
       format = "󰟜 {}%";
-      format-alt = "󰟜 {used} GiB"; # 
-      interval = 2;
+      format-alt = "󰟜 {used} GiB";
+      interval = 5;
     };
     cpu = {
       format = "  {usage}%";
       format-alt = "  {avg_frequency} GHz";
       interval = 2;
+    };
+    "custom/gpu" = {
+      exec = "gpu-monitor";
+      return-type = "json";
+      interval = 3;
+      on-click = "gpu-monitor toggle";
+      tooltip = true;
     };
     disk = {
       # path = "/";
@@ -128,7 +135,7 @@
       format-charging = " {capacity}%";
       format-full = " {capacity}%";
       format-warning = " {capacity}%";
-      interval = 5;
+      interval = 30;
       states = {
         warning = 20;
       };

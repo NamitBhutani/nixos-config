@@ -17,6 +17,7 @@ let
     builtins.readFile ./scripts/shutdown-script.sh
   );
   refresh-rate = pkgs.writeScriptBin "refresh-rate" (builtins.readFile ./scripts/refresh-rate.sh);
+  gpu-monitor = pkgs.writeScriptBin "gpu-monitor" (builtins.readFile ./scripts/gpu-monitor.sh);
   show-keybinds = pkgs.writeScriptBin "show-keybinds" (builtins.readFile ./scripts/keybinds.sh);
 
   toggle-keyboard = pkgs.writeScriptBin "toggle-keyboard" (
@@ -40,6 +41,7 @@ in
 
     shutdown-script
     refresh-rate
+    gpu-monitor
     show-keybinds
 
     ascii

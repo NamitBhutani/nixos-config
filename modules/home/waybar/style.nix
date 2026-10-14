@@ -65,6 +65,19 @@ in
         padding-right: 15px;
     }
 
+    #custom-gpu {
+        font-size: ${custom.font_size};
+        color: ${custom.text_color};
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    #custom-gpu.asleep, #custom-gpu.idle, #custom-gpu.absent, #custom-gpu.nodriver {
+        color: #6c7086;
+    }
+    #custom-gpu.high {
+        color: #f38ba8;
+    }
+
     #tray {
         padding: 0 20px;
         margin-left: 6px;
