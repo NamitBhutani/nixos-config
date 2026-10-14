@@ -3,6 +3,7 @@
   networking = {
     hostName = "laptop";
     networkmanager.enable = true;
+    modemmanager.enable = false;
     nameservers = [ "1.1.1.1" ];
     firewall = {
       enable = true;
@@ -13,7 +14,6 @@
       ];
     };
   };
-  # mihomo proxy and tunnel setup
   services.mihomo = {
     enable = true;
     tunMode = true;

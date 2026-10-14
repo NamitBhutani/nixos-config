@@ -1,12 +1,12 @@
 {
   config,
   pkgs,
+  lib,
   username,
   ...
 }:
 {
 
-  # Enable rootless docker
   virtualisation = {
     docker = {
       enable = true;
@@ -18,6 +18,7 @@
     };
   };
 
-  #Add docker-compose
+  systemd.user.services.docker.wantedBy = lib.mkForce [ ];
+
   environment.systemPackages = with pkgs; [ docker-compose ];
 }
