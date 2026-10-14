@@ -10,7 +10,7 @@
   # imports = [ inputs.nix-gaming.nixosModules.default ];
   nix = {
     settings = {
-      auto-optimise-store = true;
+      auto-optimise-store = false;
       experimental-features = [
         "nix-command"
         "flakes"
@@ -23,6 +23,14 @@
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       ];
+      http-connections = 50;
+      connect-timeout = 5;
+      min-free = 2147483648;
+      max-free = 8589934592;
+    };
+    optimise = {
+      automatic = true;
+      dates = [ "weekly" ];
     };
     gc = {
       automatic = true;
@@ -31,23 +39,24 @@
     };
   };
 
+  systemd.services.mandb.wantedBy = lib.mkForce [ ];
+  systemd.timers.mandb = {
+    wantedBy = [ "timers.target" ];
+    timerConfig.OnBootSec = "5min";
+  };
+
   environment.systemPackages = with pkgs; [
     pulseaudio
     git
-    perf # kernel-matched perf (replaces deprecated linuxPackages.perf)
+    perf
   ];
 
-  # Required for perf, rr (time-travel debugger), and bpftrace
   boot.kernel.sysctl = {
-    "kernel.perf_event_paranoid" = 1; # Allow perf by non-root (0 = full access, 1 = no raw tracepoints)
-    "kernel.kptr_restrict" = 0; # Expose kernel addresses for symbol resolution in perf/rr
+    "kernel.perf_event_paranoid" = 1;
+    "kernel.kptr_restrict" = 0;
   };
 
-  # Fallback only: automatic-timezoned (hosts/laptop) overrides this to null and
-  # sets the zone from geoclue location at runtime.
   time.timeZone = lib.mkDefault "America/Toronto";
-  # Keep the RTC in UTC. Windows is configured to use UTC too, avoiding the
-  # +05:30 jump before network time synchronisation is available.
   time.hardwareClockInLocalTime = false;
   i18n.defaultLocale = "en_US.UTF-8";
   nixpkgs.config.allowUnfree = true;

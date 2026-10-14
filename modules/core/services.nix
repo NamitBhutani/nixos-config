@@ -1,10 +1,40 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}:
+let
+  warp-toggle = pkgs.writeShellScriptBin "warp-toggle" ''
+    if systemctl is-active -q cloudflare-warp; then
+      warp-cli --accept-tos disconnect >/dev/null 2>&1
+      systemctl --user stop warp-taskbar-fixed
+      systemctl stop cloudflare-warp
+      ${pkgs.libnotify}/bin/notify-send -a WARP "WARP off"
+    else
+      systemctl start cloudflare-warp
+      for _ in $(seq 40); do
+        warp-cli --accept-tos status >/dev/null 2>&1 && break
+        sleep 0.25
+      done
+      warp-cli --accept-tos connect >/dev/null
+      systemctl --user start warp-taskbar-fixed
+      ${pkgs.libnotify}/bin/notify-send -a WARP "WARP on"
+    fi
+  '';
+in
 {
   services = {
     gvfs.enable = true;
-    # gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
     dbus.enable = true;
     fstrim.enable = true;
+  };
+
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  services.journald.settings.Journal = {
+    SystemMaxUse = "200M";
   };
 
   # services.logind.settings.Login = {
@@ -37,11 +67,23 @@
   services = {
     cloudflare-warp.enable = true;
   };
+  systemd.services.cloudflare-warp.wantedBy = lib.mkForce [ ];
+  environment.systemPackages = [ warp-toggle ];
 
-  # Disable the default warp-taskbar service
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.systemd1.manage-units" &&
+          action.lookup("unit") == "cloudflare-warp.service" &&
+          subject.user == "${username}") {
+        var verb = action.lookup("verb");
+        if (verb == "start" || verb == "stop" || verb == "restart")
+          return polkit.Result.YES;
+      }
+    });
+  '';
+
   systemd.user.services.warp-taskbar.enable = false;
 
-  # Create a new complete service from scratch
   systemd.user.services.warp-taskbar-fixed = {
     description = "Cloudflare Zero Trust Client Taskbar";
 
@@ -59,21 +101,21 @@
       LimitSTACK = "33554432";
       BindReadOnlyPaths = "${pkgs.cloudflare-warp}:/usr";
     };
-
-    wantedBy = [ "graphical-session.target" ];
   };
 
   systemd.services.sesinetd = {
     description = "Houdini License Server";
-    wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
       Type = "forking";
-      # This points to the system-wide executable path
       ExecStart = "${pkgs.houdini}/houdini/sbin/sesinetd";
       Restart = "on-failure";
       User = "root";
     };
+  };
+  systemd.timers.sesinetd = {
+    wantedBy = [ "timers.target" ];
+    timerConfig.OnBootSec = "90s";
   };
 
   # systemd = {

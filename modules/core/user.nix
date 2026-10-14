@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   username,
@@ -26,6 +27,18 @@
       programs.home-manager.enable = true;
     };
   };
+
+  systemd.services."home-manager-${username}".serviceConfig.ExecCondition =
+    let
+      hm = config.home-manager.users.${username}.home;
+    in
+    pkgs.writeShellScript "hm-skip-unchanged-at-boot" ''
+      case "$(${config.systemd.package}/bin/systemctl is-system-running)" in
+        initializing | starting) ;;
+        *) exit 0 ;;
+      esac
+      [ "$(readlink ${hm.homeDirectory}/.local/state/home-manager/gcroots/current-home)" != "${hm.activationPackage}" ]
+    '';
 
   users.users.${username} = {
     isNormalUser = true;
