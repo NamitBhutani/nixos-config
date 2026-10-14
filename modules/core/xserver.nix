@@ -1,25 +1,33 @@
 { pkgs, username, ... }:
+let
+  hyprland-session = pkgs.writeShellScript "hyprland-session" ''
+    conf="''${XDG_CACHE_HOME:-$HOME/.cache}/hypr/panel-rate.conf"
+    ${pkgs.coreutils}/bin/mkdir -p "''${conf%/*}"
+    rate=240
+    read -r ac </sys/class/power_supply/ADP1/online 2>/dev/null && [ "$ac" = 0 ] && rate=151
+    echo "monitor = desc:Sharp Corporation LQ173M1JW05,1920x1080@$rate,1920x0,1.00" >"$conf"
+    exec start-hyprland
+  '';
+in
 {
-  services.xserver = {
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+
+  services.greetd = {
     enable = true;
-    xkb.layout = "us";
-    videoDrivers = [
-      "modesetting"
-      "nvidia"
-      #"amdgpu"
-    ];
-  };
-  services = {
-    displayManager.autoLogin = {
-      enable = true;
-      user = "${username}";
-    };
-    libinput = {
-      enable = true;
+    settings = {
+      initial_session = {
+        command = "${hyprland-session}";
+        user = "${username}";
+      };
+      default_session = {
+        command = "${hyprland-session}";
+        user = "${username}";
+      };
     };
   };
-  # To prevent getting stuck at shutdown
-  # systemd.settings.Manager = {
-  #   DefaultTimeoutStopSec = "5s";
-  # };
+
+  services.libinput.enable = true;
 }
