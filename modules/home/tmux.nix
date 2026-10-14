@@ -8,7 +8,7 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
-    baseIndex = 0;
+    baseIndex = 1;
     escapeTime = 0;
     keyMode = "vi";
     prefix = "C-b";
@@ -22,20 +22,20 @@
     ];
 
     extraConfig = ''
-      # Enable mouse support
+      set -g renumber-windows on
+
       set -g mouse on
 
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
 
-      # Clipboard integration
       set -s set-clipboard on
 
-      # Better session switching
+      bind-key x kill-pane
+      bind-key & kill-window
+
       set -g detach-on-destroy off
 
-      # Sesh session manager keybinding
-      # Ctrl+B K to open sesh
       bind-key "K" display-popup -E -w 40% -h 60% "sesh connect \"$(sesh list | gum filter --placeholder 'Pick a session')\""
     '';
   };

@@ -3,56 +3,53 @@
   home.packages = (
     with pkgs;
     [
-      eza # ls replacement
-      entr # perform action when file change
-      fd # find replacement
-      file # Show file information
+      eza
+      entr
+      fd
+      file
       fzf
       houdini
-      claude-code
       antigravity-cli
+      google-chrome
       slack
       # gtt                               # google translate TUI
-      gtrash # rm replacement, put deleted files in system trash
-      jdk17 # java
+      gtrash
+      jdk17
       libreoffice
       #nautilus # file manager
-      nitch # systhem fetch util
+      nitch
       nix-prefetch-github
-      ripgrep # grep replacement
-      soundwireserver # pass audio to android phone
-      yazi # terminal file manager
-      wl-clipboard # wayland clipboard manager
-      cliphist # clipboard history
-      codex
-      # C / C++
+      ripgrep
+      soundwireserver
+      yazi
+      wl-clipboard
+      cliphist
       gcc
       gnumake
 
-      # Python
       python3
 
-      bleachbit # cache cleaner
+      bleachbit
       cmatrix
-      gparted # partition manager
-      imv # image viewer
+      gparted
+      imv
       libnotify
-      man-pages # extra man pages
-      mpv # video player
-      ncdu # disk space
+      man-pages
+      mpv
+      ncdu
       openssl
       obsidian
-      pamixer # pulseaudio command line mixer
-      pavucontrol # pulseaudio volume controle (GUI)
-      playerctl # controller for media players
+      pamixer
+      pavucontrol
+      playerctl
       poweralertd
-      qalculate-gtk # calculator
+      qalculate-gtk
       unzip
       wget
       xdg-utils
       xxd
       linux-wifi-hotspot
-      pear-desktop # youtube-music
+      pear-desktop
       unityhub
       hostapd
       iw

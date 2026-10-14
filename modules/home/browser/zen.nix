@@ -4,6 +4,17 @@
   lib,
   ...
 }:
+let
+  zen-unwrapped =
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped.overrideAttrs
+      (old: {
+        passthru = old.passthru // {
+          withFFmpeg = true;
+          withGSSAPI = true;
+        };
+      });
+  zen = pkgs.wrapFirefox zen-unwrapped { pname = "zen-browser"; };
+in
 {
   # imports = [
   #   #inputs.zen-browser.homeModules.beta
@@ -20,14 +31,8 @@
   #     # find more options here: https://mozilla.github.io/policy-templates/
   #   };
   # };
-  home.packages = (
-    with pkgs;
-    [
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ]
-  );
+  home.packages = [ zen ];
 
-  #deploy catppuccin files to all zen profiles
   # home.activation.copyToAllZenProfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
   #   FILES_DIR="$HOME/.config/nixos-config/modules/home/browser/catppuccin"
   #   PROFILES_DIR="$HOME/.zen"
